@@ -1,0 +1,33 @@
+package com.onlygaming.User;
+
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Document
+public class User {
+    
+    @Id
+    private String userId;
+
+    @NotNull
+    @Field(name = "name")
+    private String name;
+
+    @NotNull
+    @Indexed(unique = true)
+    @Field(name = "username")
+    private String username;
+
+}
