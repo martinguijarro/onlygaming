@@ -39,6 +39,8 @@ public class UserService {
 		
 		user.setName(userDetails.getName());
 		user.setUsername(userDetails.getUsername());
+		user.setPassword(userDetails.getPassword());
+		user.setEmail(userDetails.getEmail());
 		
 		final User updatedUser = userRepository.save(user);
 		return ResponseEntity.ok(updatedUser);

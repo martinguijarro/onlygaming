@@ -30,4 +30,13 @@ public class User {
     @Field(name = "username")
     private String username;
 
+    @NotNull
+    @Field(name = "password")
+    private String password;
+
+    @NotNull
+    @Indexed(unique = true)
+    @Field(name = "email")
+    private String email;
+
 }
