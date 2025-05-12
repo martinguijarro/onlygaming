@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<onlygaming>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.onlygaming.Application",
+            "projectName": "onlygaming",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
