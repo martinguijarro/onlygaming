@@ -54,4 +54,11 @@ public class UserController {
 	
 	// Custom endpoints
 
+	@PostMapping("/login")
+	public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+		LoginResponse response = userService.authenticateUser(request.getUsername(), request.getPassword());
+		return ResponseEntity.ok(response);
+	}
+	
+
 }

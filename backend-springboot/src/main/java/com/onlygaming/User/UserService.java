@@ -3,6 +3,7 @@ package com.onlygaming.User;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -65,5 +66,25 @@ public class UserService {
 	}
 
     // Other methods
+
+	public LoginResponse authenticateUser(String username, String loginPass) {
+		Optional<User> userOpt = userRepository.findByUsername(username);
+
+		if (userOpt.isEmpty()) {
+			System.out.println("User with username " + username + " not found");
+			return new LoginResponse(false, null);
+		}
+
+		User user = userOpt.get();
+
+		boolean matchingPasswords = passwordEncoder.matches(loginPass, user.getPassword());
+		
+		if (matchingPasswords) {
+			user.setPassword(null); // Clean password before return object
+			return new LoginResponse(true, user);
+		} else {
+			return new LoginResponse(false, null);
+		}
+	}
 
 }

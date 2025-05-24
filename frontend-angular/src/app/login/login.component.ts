@@ -26,6 +26,7 @@ import { Role } from '../models/enums';
 export class LoginComponent {
 
   loginForm: FormGroup;
+  userName: string = '';
 
   constructor(
     private router:Router,
@@ -43,6 +44,25 @@ export class LoginComponent {
   }
 
   userLogin() {
-    console.log('Starting login');
+    
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
+
+      this.loginService.loginUsuario(loginData).subscribe({
+        next: res => {
+          if (res.authenticated && res.user) {
+            this.userName = res.user.name;
+            console.log('Successful login. Welcome,', this.userName);
+            this.cancelLogin();
+          } else {
+            console.log('Unsuccessful login. Wrong username or password');
+          }
+        },
+        error: err => console.error('Login error:', err)
+      });
+    } else {
+      console.log('Invalid form');
+    }
+
   }
 }
