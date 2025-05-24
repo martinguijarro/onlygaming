@@ -39,4 +39,9 @@ public class User {
     @Field(name = "email")
     private String email;
 
+    @NotNull
+    @Indexed(unique = true)
+    @Field(name = "tel")
+    private String tel;
+
 }
