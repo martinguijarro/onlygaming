@@ -44,4 +44,8 @@ public class User {
     @Field(name = "tel")
     private String tel;
 
+    @NotNull
+    @Field(name = "role")
+    private Role role;
+
 }
