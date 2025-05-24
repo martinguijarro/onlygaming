@@ -17,8 +17,7 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     MatDialogModule,
     RouterModule,
-    CommonModule,
-    CommentsComponent,
+    CommonModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
