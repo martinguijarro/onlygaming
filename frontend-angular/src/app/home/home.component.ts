@@ -4,7 +4,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
-import { ComentariosComponent } from '../comentarios/comentarios.component';
+import { CommentsComponent } from '../comments/comments.component';
 import { JuegosService } from '../juegos.service';
 import { CommonModule } from '@angular/common';
 
@@ -18,12 +18,12 @@ import { CommonModule } from '@angular/common';
     MatDialogModule,
     RouterModule,
     CommonModule,
-    ComentariosComponent,
+    CommentsComponent,
   ],
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class InicioComponent {
+export class HomeComponent {
 
   imgPerfil = false;
   juegos: any[] = [];
@@ -34,12 +34,12 @@ export class InicioComponent {
     private juegosService: JuegosService,
   ) {}
 
-  Login() {
+  login() {
     this.router.navigate(['/login']);
   }
 
   nuevoComentario() {
-    this.dialog.open(ComentariosComponent, {
+    this.dialog.open(CommentsComponent, {
       width: '500px',
       panelClass: 'dialog-comentario'
     });

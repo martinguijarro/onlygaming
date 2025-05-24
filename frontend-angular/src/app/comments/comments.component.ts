@@ -11,9 +11,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatDialogModule
   ],
-  templateUrl: './comentarios.component.html',
-  styleUrl: './comentarios.component.css'
+  templateUrl: './comments.component.html',
+  styleUrl: './comments.component.css'
 })
-export class ComentariosComponent {
+export class CommentsComponent {
 
 }
