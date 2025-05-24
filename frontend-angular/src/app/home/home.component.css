@@ -32,9 +32,9 @@
     top: 12%;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 16%;
     height: calc(100vh - 12%);
-    padding: 40px;
+    padding: 30px;
     border: 1px solid lightgray;
     background-color: rgb(44, 43, 43);
     color: white;
@@ -43,19 +43,24 @@
 .lateral a, .lateral img{
     color: white;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
 .contenido{
     position: relative;
-    top:12%;
-    left: 20%;
-    width: 80%;
+    top: 12%;
+    left: 16%;
+    width: 84%;
     height: calc(100vh - 12%);
     overflow: auto;
     border: 1px solid white;
     background-color: rgb(44, 43, 43);
+}
+
+.auth-buttons{
+    display: flex;
+    gap: 10px;
 }
 
 .login{
