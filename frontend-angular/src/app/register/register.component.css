@@ -1,0 +1,24 @@
+mat-card{
+    width: 60%;
+    height: 72%;
+    padding: 30px;
+    top:15%;
+    left: 20%;
+    align-items: center;
+}
+
+mat-form-field, .login{
+    width: 100%;
+}
+
+.register{
+    font-size: 20px;
+}
+
+h1, .desc{
+    margin-bottom: 30px;
+}
+
+.cancelar{
+    height: 20px;
+}

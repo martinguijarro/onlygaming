@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.onlygaming.Exception.ResourceNotFoundException;
@@ -13,8 +13,13 @@ import com.onlygaming.Exception.ResourceNotFoundException;
 @Service
 public class UserService {
     
-    @Autowired
+	private final PasswordEncoder passwordEncoder;
     private UserRepository userRepository;
+
+	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
+	}
 
     // CRUD methods
 
@@ -30,6 +35,9 @@ public class UserService {
 	}
 	
 	public User createUser(User user) {
+		// Hash password before saving
+		String hashedPassword = passwordEncoder.encode(user.getPassword());
+		user.setPassword(hashedPassword);
 		return userRepository.save(user);
 	}
 	

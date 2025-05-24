@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +12,11 @@ import com.onlygaming.Exception.ResourceNotFoundException;
 @Service
 public class ReplyService {
     
-    @Autowired
     private ReplyRepository replyRepository;
+
+    public ReplyService(ReplyRepository replyRepository) {
+        this.replyRepository = replyRepository;
+    }
 
     // CRUD methods
 

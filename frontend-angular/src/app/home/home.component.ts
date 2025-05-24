@@ -38,6 +38,10 @@ export class HomeComponent {
     this.router.navigate(['/login']);
   }
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
   nuevoComentario() {
     this.dialog.open(CommentsComponent, {
       width: '500px',

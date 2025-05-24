@@ -7,12 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 
 import { LoginService } from '../services/login.service';
-import { User } from '../models/login.model';
+import { User } from '../models/user.model';
 import { Role } from '../models/enums';
 
 @Component({
   selector: 'app-login',
-  standalone:true,
+  standalone: true,
   imports: [
     ReactiveFormsModule,
     MatCardModule,
