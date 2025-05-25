@@ -5,12 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
 import { ComentariosComponent } from '../comentarios/comentarios.component';
+import { MatCardModule } from '@angular/material/card';
 import { JuegosService } from '../Services/juegos.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-inicio',
-  standalone: true,
+  selector: 'app-perfil',
   imports: [
     MatButtonModule,
     MatDividerModule,
@@ -19,33 +19,17 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     CommonModule,
     ComentariosComponent,
+    MatCardModule,
   ],
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  templateUrl: './perfil.component.html',
+  styleUrl: './perfil.component.css'
 })
-export class InicioComponent {
-
-  imgPerfil = false;
-  juegos: any[] = [];
-
+export class PerfilComponent {
   constructor(
-    private dialog: MatDialog,
     private router: Router,
-    private juegosService: JuegosService,
-  ) {}
+  ){}
 
-  Perfil(){
-    this.router.navigate(['/perfil']);
-  }
-
-  nuevoComentario() {
-    this.dialog.open(ComentariosComponent, {
-      width: '500px',
-      panelClass: 'dialog-comentario'
-    });
-  }
-
-  ngOnInit(): void {
-
+  Inicio(){
+    this.router.navigate(['/inicio']);
   }
 }

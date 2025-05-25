@@ -6,28 +6,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  standalone:true,
+  selector: 'app-registro',
   imports: [
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './registro.component.html',
+  styleUrl: './registro.component.css'
 })
-export class LoginComponent {
+export class RegistroComponent {
 
   constructor(
     private router:Router,
   ){}
 
-  Login(){
-    this.router.navigate(['inicio']);
-  }
-
-  Registro(){
-    this.router.navigate(['registro']);
+  Registrar(){
+    this.router.navigate(['login']);
   }
 }

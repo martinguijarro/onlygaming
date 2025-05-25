@@ -1,19 +1,23 @@
 <body>
     <mat-card>
-        <h1>Iniciar Sesion</h1>
+        <h1>Registrarse</h1>
 
         <mat-form-field>
             <mat-label>Usuario</mat-label>
             <input matInput type="text">
         </mat-form-field>
 
-        <mat-form-field class="desc">
+        <mat-form-field>
             <mat-label>Contraseña</mat-label>
             <input matInput type="password">
         </mat-form-field>
 
-        <button mat-button class="login" (click)="Login()">Login</button>
-        <button mat-button class="registrarse" (click)="Registro()">Registrarse</button>
+        <mat-form-field class="desc">
+            <mat-label>Email</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+
+        <button mat-button class="login" (click)="Registrar()">Registrar</button>
         <button mat-button class="cancelar">Cancelar</button>
     </mat-card>
 </body>

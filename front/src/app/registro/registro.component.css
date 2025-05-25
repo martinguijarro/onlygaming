@@ -17,7 +17,6 @@ mat-form-field, .login{
 
 .login{
     font-size: 20px;
-    margin-bottom: 10px;
 }
 
 h1, .desc{
@@ -26,10 +25,4 @@ h1, .desc{
 
 .cancelar{
     height: 20px;
-    width: 40%;
-}
-
-.registrarse{
-    height: 20px;
-    width: 40%;
 }
