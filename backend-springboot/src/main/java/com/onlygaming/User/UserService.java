@@ -15,7 +15,7 @@ import com.onlygaming.Exception.ResourceNotFoundException;
 public class UserService {
     
 	private final PasswordEncoder passwordEncoder;
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
 	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;

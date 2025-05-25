@@ -12,7 +12,7 @@ import com.onlygaming.Exception.ResourceNotFoundException;
 @Service
 public class ReplyService {
     
-    private ReplyRepository replyRepository;
+    private final ReplyRepository replyRepository;
 
     public ReplyService(ReplyRepository replyRepository) {
         this.replyRepository = replyRepository;
