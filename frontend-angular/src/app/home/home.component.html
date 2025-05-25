@@ -1,28 +1,24 @@
-<header class="header">
-    <img src="#">
-
-    <div class="arriba">
-        <a href="#">Para ti</a>
-        <a href="#">Siguiendo</a>
-    </div>
-
-    <div class="auth-buttons">
-        <button mat-button class="login" (click)="login()">Login</button>
-        <button mat-button class="register" (click)="register()">Register</button>
-    </div>
-</header>
-<mat-divider></mat-divider>
 <div class="lateral">
-    <a href="#">Perfil</a>
-    <a href="#">Comunidades</a>
-    <a href="#">Ajustes</a>
+    <img src="#">
+    <button mat-fab class="btn" (click)="Perfil()">
+        <mat-icon>person</mat-icon>
+    </button>
+    <button mat-fab class="btn">
+        <mat-icon>groups</mat-icon>
+    </button>
+    <button mat-fab class="btn">
+        <mat-icon>games</mat-icon>
+    </button>
 </div>
-<!-- *ngFor="let juego of juegos" -->
+
 <div class="contenido">
-    <!-- <h3>{{ juego.name }}</h3>
-    <p>{{ juego.deck }}</p>
-    <img [src]="juego.image.icon_url" alt="{{ juego.name }}"> -->
+
 </div>
+
+<div class="recomendaciones">
+    <h1>Juegos populares</h1>
+</div>
+
 <button mat-fab class="add" (click)="nuevoComentario()">
     <mat-icon>add</mat-icon>
 </button>

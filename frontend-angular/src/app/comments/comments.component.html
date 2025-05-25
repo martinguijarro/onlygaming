@@ -1,10 +1,13 @@
-<div mat-dialog-container>
+<div mat-dialog-container class="contenedor">
     <div mat-dialog-tittle>
         <h1>Nuevo comentario</h1>
     </div>
 
     <div mat-dialog-content>
-        <textarea matInput></textarea>
+        <mat-form-field>
+            <mat-label>Comentario</mat-label>
+            <textarea matInput class="comentario"></textarea>
+        </mat-form-field>
         <br>
         <button mat-button>Añadir imagen</button>
     </div>

@@ -39,6 +39,10 @@ export class LoginComponent {
     });
   }
 
+  Registro(){
+    this.router.navigate(['register']);
+  }
+
   cancelLogin(){
     this.router.navigate(['']);
   }

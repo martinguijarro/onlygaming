@@ -5,52 +5,30 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
 import { CommentsComponent } from '../comments/comments.component';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-inicio',
-  standalone: true,
+  selector: 'app-perfil',
   imports: [
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
     MatDialogModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    CommentsComponent,
+    MatCardModule,
   ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './perfil.component.html',
+  styleUrl: './perfil.component.css'
 })
-export class HomeComponent {
-
-  imgPerfil = false;
-  juegos: any[] = [];
-
+export class ProfileComponent {
   constructor(
-    private dialog: MatDialog,
     private router: Router,
-  ) {}
+  ){}
 
-  login() {
-    this.router.navigate(['/login']);
-  }
-
-  register() {
-    this.router.navigate(['/register']);
-  }
-
-  Perfil() {
-    this.router.navigate(['/profile']);
-  }
-
-  nuevoComentario() {
-    this.dialog.open(CommentsComponent, {
-      width: '500px',
-      panelClass: 'dialog-comentario'
-    });
-  }
-
-  ngOnInit(): void {
-
+  Inicio(){
+    this.router.navigate(['/']);
   }
 }

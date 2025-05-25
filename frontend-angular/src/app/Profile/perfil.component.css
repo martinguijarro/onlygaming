@@ -1,0 +1,57 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url('../../../assets/fondoPerfil.jpg');
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+}
+
+.lateral{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 97px;
+    background-color: rgb(44, 43, 43);
+    color: white;
+}
+
+.lateral a, .lateral img{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0%;
+    width: 100%;
+}
+
+.contenido{
+    position: relative;
+    width: calc(100% - 98px);
+    height:100%;
+    margin-left: 98px; 
+    overflow: auto;
+}
+
+.perfil{
+    width: 60%;
+    height: 300%;
+    margin-left: 20%;
+    background-color: rgb(44, 43, 43);  
+}
+
+.informacion{
+    text-align: center;
+    width: 100%;
+    padding: 60px;
+    border-bottom: 1px solid white; 
+}
