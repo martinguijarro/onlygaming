@@ -17,7 +17,6 @@ import { CommonModule } from '@angular/common';
     MatDialogModule,
     RouterModule,
     CommonModule,
-    CommentsComponent,
     MatCardModule,
   ],
   templateUrl: './perfil.component.html',
