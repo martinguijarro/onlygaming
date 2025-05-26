@@ -42,8 +42,12 @@ export class RegisterComponent {
     })
   }
 
-  Register(){
+  login() {
     this.router.navigate(['login']);
+  }
+
+  register(){
+    this.router.navigate(['']);
   }
 
   cancelRegister(){
@@ -52,8 +56,11 @@ export class RegisterComponent {
 
   userRegister() {
 
-    if (this.registerForm.valid) {
-      const newUser: User = this.registerForm.value;
+    if (!this.registerForm.valid) {
+      console.log('Formulario inválido');
+    }
+
+    const newUser: User = this.registerForm.value;
 
       this.registerService.createUser(newUser).subscribe({
         next: res => {
@@ -64,9 +71,6 @@ export class RegisterComponent {
           console.error('Error al crear usuario: ', err);
         }
       });
-    } else {
-      console.log('Formulario inválido');
-    }
 
   }
 }

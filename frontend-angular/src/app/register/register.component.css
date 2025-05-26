@@ -3,16 +3,34 @@ body{
 }
 
 mat-card{
-    width: 50%;
+    width: 44%;
     padding: 30px;
-    top:5%;
-    left: 25%;
+    top: 20%;
+    left: 28%;
     text-align: center;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 mat-form-field, .login{
     width: 100%;
+}
+
+.close-btn{
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #EE0000;
+    width: 32px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.close-btn:hover{
+    background-color: #BB0000;
+    color: #DDDDDD;
 }
 
 .login{
@@ -23,11 +41,19 @@ h1, .desc{
     margin-bottom: 30px;
 }
 
-.register{
-    width: 100%;
+.register-btn{
     font-size: 20px;
+    color: rgba(0, 0, 139, 0.6);
+    width: calc(50% - 5px);
+    margin-right: 10px;
+    border: 1px solid rgba(0, 0, 139, 0.2);
+    border-radius: 12px;
 }
 
-.cancelar{
-    height: 20px;
+.login-btn{
+    font-size: 20px;
+    color: rgba(0, 0, 139, 0.6);
+    width: calc(50% - 5px);
+    border: 1px solid rgba(0, 0, 139, 0.2);
+    border-radius: 12px;
 }

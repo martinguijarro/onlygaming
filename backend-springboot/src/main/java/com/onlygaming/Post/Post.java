@@ -1,5 +1,7 @@
 package com.onlygaming.Post;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -25,11 +27,15 @@ public class Post {
     private String text;
 
     @NotNull
-    @Field(name = "game_id")
-    private String gameId;
+    @Field(name = "date")
+    private LocalDateTime date;
 
     @NotNull
     @Field(name = "user_id")
     private String userId;
+
+    @NotNull
+    @Field(name = "game_id")
+    private String gameId;
 
 }

@@ -7,11 +7,11 @@
         <button *ngIf="!isLoggedIn" mat-fab class="btn" (click)="login()">
             <mat-icon>person</mat-icon>
         </button>
-
+        
         <button *ngIf="isLoggedIn" mat-fab class="btn" (click)="profile()">
             <mat-icon>person</mat-icon>
         </button>
-
+        
         <button mat-fab class="btn" (click)="communities()">
             <mat-icon>groups</mat-icon>
         </button>
@@ -19,19 +19,7 @@
         <button mat-fab class="btn" class="btn" (click)="games()">
             <mat-icon>games</mat-icon>
         </button>
-
+        
         <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
     </div>
-
-    <div class="contenido">
-
-    </div>
-
-    <div class="recomendaciones">
-        <h1>Juegos populares</h1>
-    </div>
-
-    <button mat-fab class="new-comment-btn" (click)="newComment()">
-        <mat-icon>add</mat-icon>
-    </button>
 </body>

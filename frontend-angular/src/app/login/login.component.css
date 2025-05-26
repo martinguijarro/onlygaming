@@ -15,7 +15,7 @@ mat-form-field, .buttons{
     width: 100%;
 }
 
-.login{
+.login-btn{
     font-size: 20px;
     color: rgba(0, 0, 139, 0.6);
     width: calc(50% - 5px);
@@ -24,7 +24,7 @@ mat-form-field, .buttons{
     border-radius: 12px;
 }
 
-.registrarse{
+.register-btn{
     font-size: 20px;
     color: rgba(0, 0, 139, 0.6);
     width: calc(50% - 5px);
