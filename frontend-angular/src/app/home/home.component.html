@@ -1,5 +1,4 @@
 <div class="lateral">
-    <!-- <img src="#"> -->
     <button *ngIf="!isLoggedIn" mat-fab class="btn" (click)="login()">
         <mat-icon>person</mat-icon>
     </button>
@@ -14,7 +13,7 @@
         <mat-icon>games</mat-icon>
     </button>
 
-    <button *ngIf="isLoggedIn" class="auth-btn" (click)="logout()">Cerrar sesión</button>
+    <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
 </div>
 
 <div class="contenido">

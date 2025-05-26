@@ -39,7 +39,7 @@ export class LoginComponent {
     });
   }
 
-  Registro(){
+  register(){
     this.router.navigate(['register']);
   }
 
@@ -49,25 +49,26 @@ export class LoginComponent {
 
   userLogin() {
     
-    if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
-
-      this.loginService.loginUsuario(loginData).subscribe({
-        next: res => {
-          if (res.authenticated && res.user) {
-            this.userName = res.user.name;
-            localStorage.setItem('username', res.user.username);
-            console.log('Successful login. Welcome,', localStorage.getItem('username'));
-            this.cancelLogin();
-          } else {
-            console.log('Unsuccessful login. Wrong username or password');
-          }
-        },
-        error: err => console.error('Login error:', err)
-      });
-    } else {
+    if (!this.loginForm.valid) {
       console.log('Invalid form');
+      return;
     }
+
+    const loginData = this.loginForm.value;
+
+    this.loginService.loginUsuario(loginData).subscribe({
+      next: res => {
+        if (res.authenticated && res.user) {
+          this.userName = res.user.name;
+          localStorage.setItem('username', res.user.username);
+          console.log('Successful login. Welcome,', localStorage.getItem('username'));
+          this.cancelLogin();
+        } else {
+          console.log('Unsuccessful login. Wrong username or password');
+        }
+      },
+      error: err => console.error('Login error:', err)
+    });
 
   }
 }

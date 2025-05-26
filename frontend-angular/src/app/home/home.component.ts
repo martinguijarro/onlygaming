@@ -65,4 +65,5 @@ export class HomeComponent {
       this.isLoggedIn = true;
     }
   }
+  
 }
