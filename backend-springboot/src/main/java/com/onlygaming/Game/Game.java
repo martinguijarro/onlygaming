@@ -23,12 +23,11 @@ public class Game {
 
 	@Id
 	private String gameId;
-	
+
 	@NotNull
 	@Field(name = "name")
 	private String name;
 
 	@Field(name = "user_games")
 	private List<UserGame> userGames;
-	
 }
