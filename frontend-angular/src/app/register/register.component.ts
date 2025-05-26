@@ -42,9 +42,6 @@ export class RegisterComponent {
     })
   }
 
-  Register(){
-    this.router.navigate(['login']);
-  }
 
   cancelRegister(){
     this.router.navigate(['']);
@@ -58,6 +55,7 @@ export class RegisterComponent {
       this.registerService.createUser(newUser).subscribe({
         next: res => {
           console.log('Usuario creado: ', res);
+          this.router.navigate(['']);
           this.cancelRegister();
         },
         error: err => {
