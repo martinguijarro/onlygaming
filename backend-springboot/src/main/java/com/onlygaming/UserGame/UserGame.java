@@ -1,12 +1,8 @@
-package com.onlygaming.Game;
-
-import java.util.List;
+package com.onlygaming.UserGame;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import com.onlygaming.UserGame.UserGame;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -19,16 +15,21 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class Game {
+public class UserGame {
+    
+    @Id
+    private String userGameId;
 
-	@Id
-	private String gameId;
-	
-	@NotNull
-	@Field(name = "name")
-	private String name;
+    @NotNull
+    @Field(name = "user_id")
+    private String userId;
 
-	@Field(name = "user_games")
-	private List<UserGame> userGames;
-	
+    @NotNull
+    @Field(name = "game_id")
+    private String gameId;
+
+    @NotNull
+    @Field(name = "status")
+    private GameStatus status;
+    
 }

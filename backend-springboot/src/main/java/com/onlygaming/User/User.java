@@ -1,9 +1,13 @@
 package com.onlygaming.User;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.onlygaming.UserGame.UserGame;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -47,5 +51,8 @@ public class User {
     @NotNull
     @Field(name = "role")
     private Role role;
+
+    @Field(name = "user_games")
+    private List<UserGame> userGames;
 
 }
