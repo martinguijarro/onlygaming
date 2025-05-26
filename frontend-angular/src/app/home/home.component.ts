@@ -26,6 +26,7 @@ export class HomeComponent {
   imgPerfil = false;
   juegos: any[] = [];
 
+  isLoggedIn: boolean = false;
   username: string | null = null;
 
   constructor(
@@ -37,11 +38,17 @@ export class HomeComponent {
     this.router.navigate(['/login']);
   }
 
+  logout() {
+    localStorage.removeItem('username');
+    this.isLoggedIn = false;
+    console.log('User logged out');
+  }
+
   register() {
     this.router.navigate(['/register']);
   }
 
-  Perfil() {
+  profile() {
     this.router.navigate(['/profile']);
   }
 
@@ -54,5 +61,8 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
+    if (this.username) {
+      this.isLoggedIn = true;
+    }
   }
 }
