@@ -28,6 +28,15 @@ public class Game {
 	@Field(name = "name")
 	private String name;
 
+	@Field(name = "description")
+	private String description;
+
+	@Field(name = "release_date")
+	private String releaseDate;
+
+	@Field(name = "image_url")
+	private String imageUrl;
+
 	@Field(name = "user_games")
 	private List<UserGame> userGames;
 }
