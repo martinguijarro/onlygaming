@@ -6,13 +6,13 @@
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Comentario</mat-label>
-            <textarea matInput class="comentario"></textarea>
+            <textarea matInput class="comentario" formControl="text"></textarea>
         </mat-form-field>
         <br>
         <button mat-button>Añadir imagen</button>
     </div>
 
     <div mat-dialog-actions>
-        <button mat-button>Confirmar</button>
+        <button mat-button (click)="Crear()">Confirmar</button>
     </div>
 </div>

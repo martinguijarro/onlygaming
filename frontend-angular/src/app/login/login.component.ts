@@ -57,6 +57,7 @@ export class LoginComponent {
           if (res.authenticated && res.user) {
             this.userName = res.user.name;
             localStorage.setItem('username', res.user.username);
+            localStorage.setItem('userid', res.user.id.toString());
             console.log('Successful login. Welcome,', localStorage.getItem('username'));
             this.cancelLogin();
           } else {
