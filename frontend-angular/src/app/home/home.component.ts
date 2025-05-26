@@ -26,6 +26,8 @@ export class HomeComponent {
   imgPerfil = false;
   juegos: any[] = [];
 
+  username: string | null = null;
+
   constructor(
     private dialog: MatDialog,
     private router: Router,
@@ -51,6 +53,6 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-
+    this.username = localStorage.getItem('username');
   }
 }

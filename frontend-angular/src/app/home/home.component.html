@@ -1,5 +1,10 @@
 <div class="lateral">
-    <img src="#">
+    <!-- <img src="#"> -->
+    <button *ngIf="!username" (click)="login()">Iniciar sesión</button>
+    <div *ngIf="username">
+        Bienvenido, {{ username }}!
+    </div>
+
     <button mat-fab class="btn" (click)="Perfil()">
         <mat-icon>person</mat-icon>
     </button>
