@@ -37,6 +37,18 @@
     color: white;
 }
 
+.auth-btn{
+    margin: 6px 10px;
+}
+
+.lateral mat-icon{
+    color:white;
+}
+
+.lateral div{
+    margin: 6px 10px;
+}
+
 .lateral a, .lateral img{
     color: white;
     text-decoration: none;

@@ -1,10 +1,10 @@
 <div class="lateral">
     <!-- <img src="#"> -->
-    <button *ngIf="!isLoggedIn" (click)="login()">Iniciar sesión</button>
+    <button *ngIf="!isLoggedIn" class="auth-btn" (click)="login()">Iniciar sesión</button>
     <div *ngIf="isLoggedIn">
         Bienvenido, {{ username }}!
     </div>
-    <button *ngIf="isLoggedIn" (click)="logout()">Cerrar sesión</button>
+    <button *ngIf="isLoggedIn" class="auth-btn" (click)="logout()">Cerrar sesión</button>
 
     <button mat-fab class="btn" (click)="profile()">
         <mat-icon>person</mat-icon>
