@@ -45,10 +45,6 @@
     color:white;
 }
 
-.lateral div{
-    margin: 6px 10px;
-}
-
 .lateral a, .lateral img{
     color: white;
     text-decoration: none;
@@ -100,7 +96,7 @@
     background-color: lightgreen;
 }
 
-.add{
+.new-comment-btn{
     position: fixed;
     background-color: lightgreen;
     bottom: 40px;

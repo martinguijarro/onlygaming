@@ -52,7 +52,7 @@ export class HomeComponent {
     this.router.navigate(['/profile']);
   }
 
-  nuevoComentario() {
+  newComment() {
     this.dialog.open(CommentsComponent, {
       width: '500px',
       panelClass: 'dialog-comentario'
