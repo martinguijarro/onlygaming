@@ -20,6 +20,25 @@ body{
     color: white;
 }
 
+.logout-btn{
+    color: red;
+    text-decoration: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0%;
+    width: 100%;
+}
+
+.logout-btn:hover{
+    background-color: red;
+    color: white;
+}
+
+.lateral mat-icon{
+    color:white;
+}
+
 .lateral a, .lateral img{
     color: white;
     text-decoration: none;
@@ -37,8 +56,8 @@ body{
 .contenido{
     position: relative;
     width: calc(100% - 98px);
-    height:100%;
-    margin-left: 98px; 
+    height: 100%;
+    margin-left: 98px;
     overflow: auto;
 }
 

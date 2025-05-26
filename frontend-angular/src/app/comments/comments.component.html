@@ -6,7 +6,7 @@
     <div mat-dialog-content>
         <mat-form-field>
             <mat-label>Comentario</mat-label>
-            <textarea matInput class="comentario" formControl="text"></textarea>
+            <textarea matInput class="comentario" [formControl]="text"></textarea>
         </mat-form-field>
         <br>
         <button mat-button>Añadir imagen</button>

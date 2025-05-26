@@ -26,6 +26,9 @@ export class HomeComponent {
   imgPerfil = false;
   juegos: any[] = [];
 
+  isLoggedIn: boolean = false;
+  username: string | null = null;
+
   constructor(
     private dialog: MatDialog,
     private router: Router,
@@ -35,15 +38,21 @@ export class HomeComponent {
     this.router.navigate(['/login']);
   }
 
+  logout() {
+    localStorage.removeItem('username');
+    this.isLoggedIn = false;
+    console.log('User logged out');
+  }
+
   register() {
     this.router.navigate(['/register']);
   }
 
-  Perfil() {
+  profile() {
     this.router.navigate(['/profile']);
   }
 
-  nuevoComentario() {
+  newComment() {
     this.dialog.open(CommentsComponent, {
       width: '500px',
       panelClass: 'dialog-comentario'
@@ -51,6 +60,10 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-
+    this.username = localStorage.getItem('username');
+    if (this.username) {
+      this.isLoggedIn = true;
+    }
   }
+  
 }

@@ -1,13 +1,13 @@
 export class Post {
-    id?: number;
+    id?: string;
     text: string;
-    gameid: string;
-    userid: string;
+    gameId: string;
+    userId: string;
 
-    constructor(id: number, text: string, gameid: string, userid: string) {
+    constructor(id: string, text: string, gameId: string, userId: string) {
         this.id = id;
         this.text = text;
-        this.gameid = gameid;
-        this.userid = userid;
+        this.gameId = gameId;
+        this.userId = userId;
     }
 }

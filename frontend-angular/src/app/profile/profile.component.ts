@@ -19,15 +19,37 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MatCardModule,
   ],
-  templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.css'
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+  
+  isLoggedIn: boolean = false;
+  username: string | null = null;
+  
   constructor(
     private router: Router,
   ){}
 
-  Inicio(){
+  home(){
     this.router.navigate(['/']);
   }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
+
+  logout() {
+    localStorage.removeItem('username');
+    this.isLoggedIn = false;
+    this.router.navigate(['/']);
+  }
+
+  ngOnInit(): void {
+    this.username = localStorage.getItem('username');
+    if (this.username) {
+      this.isLoggedIn = true;
+    }
+  }
+
 }

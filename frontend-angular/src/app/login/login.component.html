@@ -1,6 +1,7 @@
 <body>
     <mat-card>
-        <h1>Iniciar Sesion</h1>
+        <button class="close-btn" (click)="cancelLogin()">X</button>
+        <h1>Inicio de sesión</h1>
 
         <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
             <mat-form-field>
@@ -13,9 +14,10 @@
                 <input matInput type="password" formControlName="password">
             </mat-form-field>
 
-            <button type="submit" mat-button class="login">Login</button>
-            <button mat-button type="button" class="registrarse" (click)="Registro()">Registrarse</button>
-            <button mat-button class="cancelar" (click)="cancelLogin()">Cancelar</button>
+            <div class="buttons">
+                <button type="submit" mat-button class="login">Iniciar sesión</button>
+                <button mat-button type="button" class="registrarse" (click)="register()">Registrarse</button>
+            </div>
         </form>
     </mat-card>
 </body>

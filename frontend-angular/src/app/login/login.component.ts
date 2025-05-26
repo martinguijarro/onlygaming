@@ -39,7 +39,7 @@ export class LoginComponent {
     });
   }
 
-  Registro(){
+  register(){
     this.router.navigate(['register']);
   }
 
@@ -50,14 +50,13 @@ export class LoginComponent {
   userLogin() {
     
     if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
-
+    const loginData = this.loginForm.value;
+      console.log(loginData);
       this.loginService.loginUsuario(loginData).subscribe({
         next: res => {
           if (res.authenticated && res.user) {
             this.userName = res.user.name;
             localStorage.setItem('username', res.user.username);
-            localStorage.setItem('userid', res.user.id.toString());
             console.log('Successful login. Welcome,', localStorage.getItem('username'));
             this.cancelLogin();
           } else {
@@ -69,6 +68,5 @@ export class LoginComponent {
     } else {
       console.log('Invalid form');
     }
-
   }
 }

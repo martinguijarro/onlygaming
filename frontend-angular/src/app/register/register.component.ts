@@ -42,7 +42,7 @@ export class RegisterComponent {
     })
   }
 
-  Register(){
+  Login(){
     this.router.navigate(['login']);
   }
 
@@ -57,6 +57,8 @@ export class RegisterComponent {
 
       this.registerService.createUser(newUser).subscribe({
         next: res => {
+          console.log(res);
+          localStorage.setItem('userid', res.userId);
           console.log('Usuario creado: ', res);
           this.cancelRegister();
         },

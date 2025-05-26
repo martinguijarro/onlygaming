@@ -5,6 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ComentariosService } from '../services/comentarios.service';
 import { Post } from '../models/post.model';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-comentarios',
@@ -12,7 +13,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   imports: [
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css'
@@ -23,15 +25,15 @@ export class CommentsComponent {
     private comentariosService: ComentariosService
   ){ }
 
-  text=new FormControl('text');
+  text=new FormControl('');
 
   Crear(){
     const post: Post = {
-      id:Number(''),
       text: this.text.value || '',
-      userid: localStorage.getItem('userid')!,
-      gameid: '6834701fdc1d4d30fa10d557'
+      userId: localStorage.getItem('userid')!,
+      gameId: '6834701fdc1d4d30fa10d557'
     };
+    
     post.text=this.text.value!;
     this.comentariosService.createPost(post).subscribe({
       next: res=>{
