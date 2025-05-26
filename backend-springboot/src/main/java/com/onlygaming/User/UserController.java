@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onlygaming.Exception.ResourceNotFoundException;
+import com.onlygaming.Game.Game;
 
 import jakarta.validation.Valid;
 
@@ -59,6 +60,10 @@ public class UserController {
 		LoginResponse response = userService.authenticateUser(request.getUsername(), request.getPassword());
 		return ResponseEntity.ok(response);
 	}
-	
+
+	@GetMapping("/user/{userId}/games")
+	public List<Game> getGamesByUserId(@PathVariable String userId) throws ResourceNotFoundException {
+		return userService.getGamesByUserId(userId);
+	}
 
 }

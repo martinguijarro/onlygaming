@@ -1,5 +1,6 @@
 package com.onlygaming.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,15 +11,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.onlygaming.Exception.ResourceNotFoundException;
+import com.onlygaming.Game.Game;
+import com.onlygaming.Game.GameRepository;
+import com.onlygaming.UserGame.UserGame;
+import com.onlygaming.UserGame.UserGameRepository;
 
 @Service
 public class UserService {
     
 	private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
+	private final UserGameRepository userGameRepository;
+	private final GameRepository gameRepository;
 
-	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+	public UserService(UserRepository userRepository, UserGameRepository userGameRepository, GameRepository gameRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
+		this.userGameRepository = userGameRepository;
+		this.gameRepository = gameRepository;
 		this.passwordEncoder = passwordEncoder;
 	}
 
@@ -85,6 +94,22 @@ public class UserService {
 		} else {
 			return new LoginResponse(false, null);
 		}
+	}
+
+	public List<Game> getGamesByUserId(String userId) throws ResourceNotFoundException {
+		List<UserGame> userGames = userGameRepository.findByUserId(userId);
+		
+		List<Game> games = new ArrayList<>();
+
+		for (UserGame userGame : userGames) {
+			Optional<Game> game = gameRepository.findById(userGame.getGameId());
+
+			game.ifPresent(games::add);
+		}
+
+
+		System.out.println(games);
+		return games;
 	}
 
 }
