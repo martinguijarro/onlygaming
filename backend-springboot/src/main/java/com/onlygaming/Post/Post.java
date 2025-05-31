@@ -28,7 +28,7 @@ public class Post {
 
     @NotNull
     @Field(name = "date")
-    private LocalDateTime date;
+    private LocalDateTime date = LocalDateTime.now();
 
     @NotNull
     @Field(name = "user_id")

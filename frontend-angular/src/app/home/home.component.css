@@ -89,6 +89,23 @@
     background-color: lightgreen;
 }
 
+.post{
+    color: white;
+    margin: 20px;
+}
+
+.post-game{
+    margin: 5px 0 0 10px;
+}
+
+.post-text{
+    margin: 5px 0 0 10px;
+}
+
+.post-user span{
+    color:lightgray;
+}
+
 .new-comment-btn{
     position: fixed;
     background-color: lightgreen;

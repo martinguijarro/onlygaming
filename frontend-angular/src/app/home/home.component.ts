@@ -6,6 +6,8 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
 import { CommentsComponent } from '../comments/comments.component';
 import { CommonModule } from '@angular/common';
+import { PostDTO } from '../models/post.model';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-inicio',
@@ -25,10 +27,13 @@ export class HomeComponent {
 
   isLoggedIn: boolean = false;
   username: string | null = null;
+
+  posts: PostDTO[] = [];
   
   constructor(
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private postService: PostService
   ){}
 
   login() {
@@ -73,6 +78,10 @@ export class HomeComponent {
     if (this.username) {
       this.isLoggedIn = true;
     }
+
+    this.postService.getPosts().subscribe((data) => {
+      this.posts = data;
+    });
   }
   
 }

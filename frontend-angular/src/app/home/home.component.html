@@ -26,7 +26,11 @@
     </div>
 
     <div class="contenido">
-
+        <div *ngFor="let post of posts" class="post">
+            <p class="post-user">{{ post.userName }} <span>{{'@' + post.userUsername }} · {{ post.date }}</span></p>
+            <p class="post-game">{{ post.game }}</p>
+            <p class="post-text">{{ post.text }}</p>
+        </div>
     </div>
 
     <div class="recomendaciones">
