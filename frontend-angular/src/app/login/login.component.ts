@@ -61,6 +61,7 @@ export class LoginComponent {
           this.userName = res.user.name;
           localStorage.setItem('username', res.user.username);
           localStorage.setItem('userId', res.user.userId);
+          localStorage.setItem('userRole', res.user.role);
           console.log('Successful login. Welcome,', localStorage.getItem('username'));
           console.log('User id: ', localStorage.getItem('userId'));
           this.cancelLogin();
