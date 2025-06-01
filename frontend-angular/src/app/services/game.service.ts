@@ -16,4 +16,8 @@ export class GameService {
     getGames(): Observable<Game[]> {
         return this.http.get<Game[]>(`${environment.backUrl}/games/all`, { withCredentials: false })
     }
+
+    createGame(game: Game) {
+        return this.http.post<Game>(`${environment.backUrl}/game/create`, game, { withCredentials: false })
+    }
 }

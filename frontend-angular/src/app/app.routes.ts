@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GamesComponent } from './games/games.component';
 import { CommunitiesComponent } from './communities/communities.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 export const routes: Routes = [
   {
@@ -31,5 +32,9 @@ export const routes: Routes = [
   {
     path: 'games',
     component: GamesComponent
+  },
+  {
+    path: 'admin',
+    component: AdminPanelComponent
   }
 ];

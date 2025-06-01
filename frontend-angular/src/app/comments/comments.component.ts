@@ -45,6 +45,7 @@ export class CommentsComponent {
 
     if (!this.postForm.valid) {
       console.log('Formulario inválido');
+      return;
     }
 
     const newPost: Post = this.postForm.value;

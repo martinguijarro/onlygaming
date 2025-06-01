@@ -30,6 +30,22 @@
     color: #EEEEEE;
 }
 
+.admin-btn{
+    color: #eeda00;
+    text-decoration: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 6px;
+    width: calc(100% - 8px);
+    margin: 5px 4px;
+}
+
+.admin-btn:hover{
+    background-color: #bbae00;
+    color: #EEEEEE;
+}
+
 .logout-btn{
     color: #EE0000;
     text-decoration: none;

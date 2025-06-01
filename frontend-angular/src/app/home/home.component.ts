@@ -25,6 +25,7 @@ import { PostService } from '../services/post.service';
 })
 export class HomeComponent {
 
+  isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   username: string | null = null;
 
@@ -42,8 +43,15 @@ export class HomeComponent {
 
   logout() {
     localStorage.removeItem('username');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userRole');
+    this.isAdmin = false;
     this.isLoggedIn = false;
     console.log('User logged out');
+  }
+
+  admin() {
+    this.router.navigate(['/admin']);
   }
 
   register() {
@@ -77,6 +85,10 @@ export class HomeComponent {
     this.username = localStorage.getItem('username');
     if (this.username) {
       this.isLoggedIn = true;
+    }
+
+    if(localStorage.getItem('userRole') === 'ADMIN') {
+      this.isAdmin = true;
     }
 
     this.postService.getPosts().subscribe((data) => {

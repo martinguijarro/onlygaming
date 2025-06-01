@@ -22,6 +22,7 @@
             <mat-icon>games</mat-icon>
         </button>
 
+        <button *ngIf="isAdmin" class="admin-btn" (click)="admin()">Panel admin</button>
         <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
     </div>
 
