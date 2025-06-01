@@ -37,7 +37,7 @@
         <h1>Juegos populares</h1>
     </div>
 
-    <button mat-fab class="new-comment-btn" (click)="newComment()">
+    <button *ngIf="isLoggedIn" mat-fab class="new-comment-btn" (click)="newComment()">
         <mat-icon>add</mat-icon>
     </button>
 </body>
