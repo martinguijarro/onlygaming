@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
-import { CommentsComponent } from '../comments/comments.component';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 
@@ -28,12 +27,8 @@ export class ProfileComponent {
   username: string | null = null;
   
   constructor(
-    private router: Router,
+    private router: Router
   ){}
-
-  home(){
-    this.router.navigate(['/']);
-  }
 
   login() {
     this.router.navigate(['/login']);
@@ -42,7 +37,27 @@ export class ProfileComponent {
   logout() {
     localStorage.removeItem('username');
     this.isLoggedIn = false;
-    this.router.navigate(['/']);
+    console.log('User logged out');
+  }
+
+  register() {
+    this.router.navigate(['/register']);
+  }
+
+  home() {
+    this.router.navigate(['']);
+  }
+
+  profile() {
+    this.router.navigate(['/profile']);
+  }
+
+  communities() {
+    this.router.navigate(['/communities']);
+  }
+
+  games() {
+    this.router.navigate(['/games']);
   }
 
   ngOnInit(): void {

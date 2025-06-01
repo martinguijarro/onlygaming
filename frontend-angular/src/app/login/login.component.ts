@@ -7,8 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 
 import { LoginService } from '../services/login.service';
-import { User } from '../models/user.model';
-import { Role } from '../models/enums';
 
 @Component({
   selector: 'app-login',
@@ -59,9 +57,13 @@ export class LoginComponent {
     this.loginService.loginUsuario(loginData).subscribe({
       next: res => {
         if (res.authenticated && res.user) {
+          console.log(res)
           this.userName = res.user.name;
           localStorage.setItem('username', res.user.username);
+          localStorage.setItem('userId', res.user.userId);
+          localStorage.setItem('userRole', res.user.role);
           console.log('Successful login. Welcome,', localStorage.getItem('username'));
+          console.log('User id: ', localStorage.getItem('userId'));
           this.cancelLogin();
         } else {
           console.log('Unsuccessful login. Wrong username or password');

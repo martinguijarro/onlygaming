@@ -2,56 +2,38 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
-import { CommentsComponent } from '../comments/comments.component';
 import { CommonModule } from '@angular/common';
-import { PostDTO } from '../models/post.model';
-import { PostService } from '../services/post.service';
 
 @Component({
-  selector: 'app-inicio',
-  standalone: true,
+  selector: 'app-communities',
   imports: [
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
-    MatDialogModule,
     RouterModule,
     CommonModule
   ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './communities.component.html',
+  styleUrl: './communities.component.css'
 })
-export class HomeComponent {
+export class CommunitiesComponent {
 
-  isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   username: string | null = null;
-
-  posts: PostDTO[] = [];
   
   constructor(
-    private router: Router,
-    private dialog: MatDialog,
-    private postService: PostService
+    private router: Router
   ){}
-
+  
   login() {
     this.router.navigate(['/login']);
   }
 
   logout() {
     localStorage.removeItem('username');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('userRole');
-    this.isAdmin = false;
     this.isLoggedIn = false;
     console.log('User logged out');
-  }
-
-  admin() {
-    this.router.navigate(['/admin']);
   }
 
   register() {
@@ -74,26 +56,11 @@ export class HomeComponent {
     this.router.navigate(['/games']);
   }
 
-  newComment() {
-    this.dialog.open(CommentsComponent, {
-      width: '500px',
-      panelClass: 'dialog-comentario'
-    });
-  }
-
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
     if (this.username) {
       this.isLoggedIn = true;
     }
-
-    if(localStorage.getItem('userRole') === 'ADMIN') {
-      this.isAdmin = true;
-    }
-
-    this.postService.getPosts().subscribe((data) => {
-      this.posts = data;
-    });
   }
-  
+
 }

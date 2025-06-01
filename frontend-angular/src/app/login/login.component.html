@@ -14,9 +14,10 @@
                 <input matInput type="password" formControlName="password">
             </mat-form-field>
 
-            <button type="submit" mat-button class="login" (click)="userLogin()">Login</button>
-            <button mat-button type="button" class="registrarse" (click)="register()">Registrarse</button>
-            <button mat-button class="cancelar" (click)="cancelLogin()">Cancelar</button>
+            <div class="buttons">
+                <button type="submit" mat-button class="login-btn">Iniciar sesión</button>
+                <button mat-button class="register-btn" (click)="register()">¿No tienes cuenta? Regístrate</button>
+            </div>
         </form>
     </mat-card>
 </body>

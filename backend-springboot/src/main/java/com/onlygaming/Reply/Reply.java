@@ -1,5 +1,7 @@
 package com.onlygaming.Reply;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -25,7 +27,15 @@ public class Reply {
     private String text;
 
     @NotNull
+    @Field(name = "date")
+    private LocalDateTime date;
+
+    @NotNull
     @Field(name = "user_id")
     private String userId;
+
+    @NotNull
+    @Field(name = "post_id")
+    private String postId;
 
 }

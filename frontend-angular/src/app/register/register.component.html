@@ -1,6 +1,7 @@
 <body>
     <mat-card>
-        <h1>Registrarse</h1>
+        <button class="close-btn" (click)="cancelRegister()">X</button>
+        <h1>Registro</h1>
 
         <form [formGroup]="registerForm" (ngSubmit)="userRegister()">
             <mat-form-field>
@@ -24,12 +25,14 @@
             </mat-form-field>
 
             <mat-form-field>
-                <mat-label>Telefono</mat-label>
+                <mat-label>Teléfono</mat-label>
                 <input matInput type="tel" formControlName="tel">
             </mat-form-field>
 
-            <button type="submit" mat-button class="register" (click)="userRegister()">Registrarse</button>
-            <button mat-button class="cancelar" (click)="cancelRegister()">Cancelar</button>
+            <div class="buttons">
+                <button type="submit" mat-button class="register-btn" (click)="register()">Registrarse</button>
+                <button mat-button class="login-btn" (click)="login()">Ya tengo una cuenta</button>
+            </div>
         </form>
     </mat-card>
 </body>
