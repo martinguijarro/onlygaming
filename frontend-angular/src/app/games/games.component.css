@@ -41,6 +41,19 @@
     margin: 5px 4px;
 }
 
+.contenido{
+    position: relative;
+    width: calc(100% - 98px);
+    height: 100%;
+    margin-left: 98px; 
+    margin-right: 30%;
+    overflow: auto;
+    background-color: rgb(44, 43, 43);
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .logout-btn:hover{
     background-color: #BB0000;
     color: #EEEEEE;
@@ -55,4 +68,17 @@
     box-shadow: none;
     border-radius: 0%;
     width: 100%;
+}
+
+.games{
+    padding: 20px;
+}
+
+.game-name{
+    color: gold;
+}
+
+.imagen{
+    width: 100px;
+    height: auto;
 }

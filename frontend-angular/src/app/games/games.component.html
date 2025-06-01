@@ -18,10 +18,18 @@
             <mat-icon>groups</mat-icon>
         </button>
         
-        <button mat-fab class="btn" class="btn" (click)="games()">
+        <button mat-fab class="btn" class="btn" (click)="Games()">
             <mat-icon>games</mat-icon>
         </button>
         
         <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
+    </div>
+
+    <div class="contenido">
+        <div *ngFor="let game of games" class="games">
+            <img [src]="game.imageUrl" alt="{{ game.name }}" class="imagen">
+            <h3 class="game-name">{{ game.name }}</h3>
+            <p class="game-id">{{ game.gameId }}</p>
+        </div>
     </div>
 </body>

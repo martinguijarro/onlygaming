@@ -6,14 +6,13 @@ import { User } from '../models/user.model'
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
+export class UsuarioService {
 
-export class RegisterService {
-    
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    createUser(user: User): Observable<User>  {
-        return this.http.post<User>(`${environment.backUrl}/user/create`, user, { withCredentials: false })
-    }
+  getUser(userId:string): Observable<User>{
+    return this.http.get<User>(`${environment.backUrl}/user/${userId}`, { withCredentials: false })
+  }
 }

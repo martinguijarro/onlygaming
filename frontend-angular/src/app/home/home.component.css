@@ -107,7 +107,8 @@
 
 .post{
     color: white;
-    margin: 20px;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
 }
 
 .post-game{
@@ -134,4 +135,9 @@
     bottom: 40px;
     right: 40px;
     color: white;
+}
+
+.post{
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
 }

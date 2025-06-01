@@ -53,6 +53,7 @@ export class CommentsComponent {
     this.postService.createPost(newPost).subscribe({
       next: res => {
         console.log('Post creado: ', res);
+        location.reload();
       },
       error: err => {
         console.error('Error al crear post: ', err);
