@@ -21,6 +21,7 @@ import { LoginService } from '../services/login.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
 
   loginForm: FormGroup;
@@ -47,30 +48,26 @@ export class LoginComponent {
 
   userLogin() {
     
-    if (!this.loginForm.valid) {
-      console.log('Invalid form');
-      return;
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
+
+      this.loginService.loginUsuario(loginData).subscribe({
+        next: res => {
+          if (res.authenticated && res.user) {
+            console.log(res)
+            this.userName = res.user.name;
+            localStorage.setItem('username', res.user.username);
+            localStorage.setItem('userId', res.user.userId);
+            localStorage.setItem('userRole', res.user.role);
+            console.log('Successful login. Welcome,', localStorage.getItem('username'));
+            console.log('User id: ', localStorage.getItem('userId'));
+            this.cancelLogin();
+          } else {
+            console.log('Unsuccessful login. Wrong username or password');
+          }
+        },
+        error: err => console.error('Login error:', err)
+      });
     }
-
-    const loginData = this.loginForm.value;
-
-    this.loginService.loginUsuario(loginData).subscribe({
-      next: res => {
-        if (res.authenticated && res.user) {
-          console.log(res)
-          this.userName = res.user.name;
-          localStorage.setItem('username', res.user.username);
-          localStorage.setItem('userId', res.user.userId);
-          localStorage.setItem('userRole', res.user.role);
-          console.log('Successful login. Welcome,', localStorage.getItem('username'));
-          console.log('User id: ', localStorage.getItem('userId'));
-          this.cancelLogin();
-        } else {
-          console.log('Unsuccessful login. Wrong username or password');
-        }
-      },
-      error: err => console.error('Login error:', err)
-    });
-
   }
 }
