@@ -1,16 +1,16 @@
 export class Post {
-    id: number;
+    postId: string;
     text: string;
     date: Date;
-    user: number;
-    game: number;
+    userId: string;
+    gameId: string;
 
-    constructor(id: number, text: string, date: Date, user: number, game: number) {
-        this.id = id;
+    constructor(postId: string, text: string, date: Date, userId: string, gameId: string) {
+        this.postId = postId;
         this.text = text;
         this.date = date;
-        this.user = user;
-        this.game = game;
+        this.userId = userId;
+        this.gameId = gameId;
     }
 }
 

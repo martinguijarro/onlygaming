@@ -1,9 +1,9 @@
 export class Game {
-    id: number;
+    gameId: string;
     name: string;
 
-    constructor(id: number, name: string) {
-        this.id = id;
+    constructor(gameId: string, name: string) {
+        this.gameId = gameId;
         this.name = name;
     }
 }

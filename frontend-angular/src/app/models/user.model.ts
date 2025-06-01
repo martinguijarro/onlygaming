@@ -1,7 +1,7 @@
 import { Role } from "./enums";
 
 export class User {
-    id: number;
+    userId: string;
     name: string;
     username: string;
     password: string;
@@ -9,8 +9,8 @@ export class User {
     tel: string;
     role: Role;
 
-    constructor(id: number, name: string, username: string, password: string, email: string, tel: string, role: Role) {
-        this.id = id;
+    constructor(userId: string, name: string, username: string, password: string, email: string, tel: string, role: Role) {
+        this.userId = userId;
         this.name = name;
         this.username = username;
         this.password = password;

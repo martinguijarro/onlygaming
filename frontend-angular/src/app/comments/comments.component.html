@@ -4,19 +4,23 @@
     </div>
 
     <div mat-dialog-content>
-        <mat-form-field>
-            <mat-label>Texto</mat-label>
-            <textarea matInput class="text"></textarea>
-        </mat-form-field>
-        <br/>
-        <select>
-            <option *ngFor="let game of games" [value]="game.name">{{ game.name }}</option>
-        </select>
-        <br/>
-        <button mat-button>Añadir imagen</button>
-    </div>
+        <form [formGroup]="postForm" (ngSubmit)="createPost()">
+            <mat-form-field>
+                <mat-label>Texto</mat-label>
+                <textarea matInput class="text" formControlName="text"></textarea>
+            </mat-form-field>
 
-    <div mat-dialog-actions>
-        <button mat-button>Publicar</button>
+            <br/>
+
+            <select formControlName="gameId">
+                <option *ngFor="let game of games" [value]="game.gameId">{{ game.name }}</option>
+            </select>
+            
+            <!-- <button mat-button>Añadir imagen</button> -->
+            
+            <br/>
+
+            <button type="submit" mat-button>Publicar</button>
+        </form>
     </div>
 </div>

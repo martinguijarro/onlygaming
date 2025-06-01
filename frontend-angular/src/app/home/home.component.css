@@ -95,15 +95,21 @@
 }
 
 .post-game{
-    margin: 5px 0 0 10px;
+    margin-top: 2px;
+    color: gold;
 }
 
 .post-text{
-    margin: 5px 0 0 10px;
+    margin-top: 5px;
+}
+
+.post-user{
+    font-weight: bold;
 }
 
 .post-user span{
     color:lightgray;
+    font-weight: normal;
 }
 
 .new-comment-btn{

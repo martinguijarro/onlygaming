@@ -62,15 +62,15 @@ export class RegisterComponent {
 
     const newUser: User = this.registerForm.value;
 
-      this.registerService.createUser(newUser).subscribe({
-        next: res => {
-          console.log('Usuario creado: ', res);
-          this.cancelRegister();
-        },
-        error: err => {
-          console.error('Error al crear usuario: ', err);
-        }
-      });
+    this.registerService.createUser(newUser).subscribe({
+      next: res => {
+        console.log('Usuario creado: ', res);
+        this.cancelRegister();
+      },
+      error: err => {
+        console.error('Error al crear usuario: ', err);
+      }
+    });
 
   }
 }
