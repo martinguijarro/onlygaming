@@ -8,20 +8,46 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.onlygaming.Exception.ResourceNotFoundException;
+import com.onlygaming.Game.Game;
+import com.onlygaming.Game.GameRepository;
+import com.onlygaming.User.User;
+import com.onlygaming.User.UserRepository;
 
 @Service
 public class PostService {
     
     private final PostRepository postRepository;
+    private final UserRepository userRepository;
+    private final GameRepository gameRepository;
 
-    public PostService(PostRepository postRepository) {
+    public PostService(PostRepository postRepository, UserRepository userRepository, GameRepository gameRepository) {
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
+        this.gameRepository = gameRepository;
     }
 
     // CRUD methods
 
-    public List<Post> getAllPosts() {
-        return postRepository.findAll();
+    public List<PostDTO> getAllPosts() {
+        List<Post> posts = postRepository.findAll();
+
+        return posts.stream().map(post -> {
+            User user = userRepository.findById(post.getUserId()).orElse(null);
+            String userName = user != null ? user.getName() : "Desconocido";
+            String userUsername = user != null ? user.getUsername() : "Desconocido";
+
+            Game game = gameRepository.findById(post.getGameId()).orElse(null);
+            String gameName = game != null ? game.getName() : "Desconocido";
+
+            return new PostDTO(
+                post.getPostId(),
+                post.getText(),
+                post.getDate(),
+                userName,
+                userUsername,
+                gameName
+            );
+        }).toList();
     }
 
     public ResponseEntity<Post> getPostById(String postId) throws ResourceNotFoundException {

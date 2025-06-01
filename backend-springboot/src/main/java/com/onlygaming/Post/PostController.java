@@ -28,7 +28,7 @@ public class PostController {
     // CRUD endpoints
 
     @GetMapping("/posts/all")
-    public List<Post> getAllPosts() {
+    public List<PostDTO> getAllPosts() {
         return postService.getAllPosts();
     }
 

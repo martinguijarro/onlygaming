@@ -42,6 +42,13 @@ export class RegisterComponent {
     })
   }
 
+  login() {
+    this.router.navigate(['login']);
+  }
+
+  register(){
+    this.router.navigate(['']);
+  }
 
   cancelRegister(){
     this.router.navigate(['']);
@@ -49,22 +56,21 @@ export class RegisterComponent {
 
   userRegister() {
 
-    if (this.registerForm.valid) {
-      const newUser: User = this.registerForm.value;
-
-      this.registerService.createUser(newUser).subscribe({
-        next: res => {
-          console.log('Usuario creado: ', res);
-          this.router.navigate(['']);
-          this.cancelRegister();
-        },
-        error: err => {
-          console.error('Error al crear usuario: ', err);
-        }
-      });
-    } else {
+    if (!this.registerForm.valid) {
       console.log('Formulario inválido');
     }
+
+    const newUser: User = this.registerForm.value;
+
+    this.registerService.createUser(newUser).subscribe({
+      next: res => {
+        console.log('Usuario creado: ', res);
+        this.cancelRegister();
+      },
+      error: err => {
+        console.error('Error al crear usuario: ', err);
+      }
+    });
 
   }
 }

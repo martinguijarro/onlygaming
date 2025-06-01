@@ -1,29 +1,43 @@
-<div class="lateral">
-    <button *ngIf="!isLoggedIn" mat-fab class="btn" (click)="login()">
-        <mat-icon>person</mat-icon>
+<body>
+    <div class="lateral">
+        <p class="logo">O<span>G</span></p>
+
+        <button mat-fab class="btn" (click)="home()">
+            <mat-icon>home</mat-icon>
+        </button>
+        
+        <button *ngIf="!isLoggedIn" mat-fab class="btn" (click)="login()">
+            <mat-icon>person</mat-icon>
+        </button>
+
+        <button *ngIf="isLoggedIn" mat-fab class="btn" (click)="profile()">
+            <mat-icon>person</mat-icon>
+        </button>
+
+        <button mat-fab class="btn" (click)="communities()">
+            <mat-icon>groups</mat-icon>
+        </button>
+        
+        <button mat-fab class="btn" class="btn" (click)="games()">
+            <mat-icon>games</mat-icon>
+        </button>
+
+        <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
+    </div>
+
+    <div class="contenido">
+        <div *ngFor="let post of posts" class="post">
+            <p class="post-user">{{ post.userName }} <span>{{'@' + post.userUsername }} · {{ post.date }}</span></p>
+            <p class="post-game">{{ post.game }}</p>
+            <p class="post-text">{{ post.text }}</p>
+        </div>
+    </div>
+
+    <div class="recomendaciones">
+        <h1>Juegos populares</h1>
+    </div>
+
+    <button *ngIf="isLoggedIn" mat-fab class="new-comment-btn" (click)="newComment()">
+        <mat-icon>add</mat-icon>
     </button>
-
-    <button *ngIf="isLoggedIn" mat-fab class="btn" (click)="profile()">
-        <mat-icon>person</mat-icon>
-    </button>
-    <button mat-fab class="btn">
-        <mat-icon>groups</mat-icon>
-    </button>
-    <button mat-fab class="btn">
-        <mat-icon>games</mat-icon>
-    </button>
-
-    <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
-</div>
-
-<div class="contenido">
-
-</div>
-
-<div class="recomendaciones">
-    <h1>Juegos populares</h1>
-</div>
-
-<button mat-fab class="new-comment-btn" (click)="newComment()">
-    <mat-icon>add</mat-icon>
-</button>
+</body>

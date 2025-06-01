@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { GamesComponent } from './games/games.component';
+import { CommunitiesComponent } from './communities/communities.component';
 
 export const routes: Routes = [
   {
@@ -21,5 +23,13 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'communities',
+    component: CommunitiesComponent
+  },
+  {
+    path: 'games',
+    component: GamesComponent
   }
 ];
