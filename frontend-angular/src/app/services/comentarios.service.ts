@@ -15,4 +15,8 @@ export class ComentariosService {
   createPost(post: Post): Observable<Post>{
       return this.http.post<Post>(`${environment.backUrl}/post/create`, post, { withCredentials: false })
   }
+
+  getPost(): Observable<Post[]>{
+      return this.http.get<Post[]>(`${environment.backUrl}/posts/all`, { withCredentials: false })
+  }
 }

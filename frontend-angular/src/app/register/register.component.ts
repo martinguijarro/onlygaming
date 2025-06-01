@@ -60,7 +60,7 @@ export class RegisterComponent {
           console.log(res);
           localStorage.setItem('userid', res.userId);
           console.log('Usuario creado: ', res);
-          this.cancelRegister();
+          this.Login();
         },
         error: err => {
           console.error('Error al crear usuario: ', err);

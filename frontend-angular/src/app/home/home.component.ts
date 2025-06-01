@@ -6,6 +6,11 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { RouterModule, Router } from '@angular/router';
 import { CommentsComponent } from '../comments/comments.component';
 import { CommonModule } from '@angular/common';
+import { ComentariosService } from '../services/comentarios.service';
+import { Post } from '../models/post.model';
+import { UsuarioService } from '../services/usuario.service';
+import { User } from '../models/user.model';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-inicio',
@@ -25,6 +30,9 @@ export class HomeComponent {
 
   imgPerfil = false;
   juegos: any[] = [];
+  posts: Post[]=[];
+  userMap: Map<string, string> = new Map();
+  gameMap: Map<string, string> = new Map();
 
   isLoggedIn: boolean = false;
   username: string | null = null;
@@ -32,6 +40,9 @@ export class HomeComponent {
   constructor(
     private dialog: MatDialog,
     private router: Router,
+    private comentariosService:ComentariosService,
+    private usuarioService:UsuarioService,
+    private gameService:GameService,
   ) {}
 
   login() {
@@ -64,6 +75,18 @@ export class HomeComponent {
     if (this.username) {
       this.isLoggedIn = true;
     }
+
+    this.comentariosService.getPost().subscribe(posts=>{
+      posts.forEach(post => {
+        this.posts.push(post);
+        this.usuarioService.getUser(post.userId).subscribe(user => {
+          this.userMap.set(post.userId, user.username);
+        });
+        this.gameService.getGame(post.gameId).subscribe(game => {
+          this.gameMap.set(post.gameId, game.name);
+        });
+      })
+    });
   }
   
 }
