@@ -20,4 +20,12 @@ export class PostService {
     createPost(post: Post) {
         return this.http.post(`${environment.backUrl}/post/create`, post, { withCredentials: false })
     }
+
+    likePost(postId: string, username: string) {
+        return this.http.post<PostDTO>(`${environment.backUrl}/post/${postId}/like`, username, { withCredentials: false })
+    }
+
+    unlikePost(postId: string, username: string) {
+        return this.http.post<PostDTO>(`${environment.backUrl}/post/${postId}/unlike`, username, { withCredentials: false })
+    }
 }

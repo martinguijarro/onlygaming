@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 })
 export class GamesComponent {
   
+  isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   username: string | null = null;
   
@@ -32,8 +33,16 @@ export class GamesComponent {
 
   logout() {
     localStorage.removeItem('username');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userRole');
+    this.isAdmin = false;
     this.isLoggedIn = false;
+    this.username = null;
     console.log('User logged out');
+  }
+
+  admin() {
+    this.router.navigate(['/admin']);
   }
 
   register() {
@@ -60,6 +69,10 @@ export class GamesComponent {
     this.username = localStorage.getItem('username');
     if (this.username) {
       this.isLoggedIn = true;
+    }
+
+    if(localStorage.getItem('userRole') === 'ADMIN') {
+      this.isAdmin = true;
     }
   }
 

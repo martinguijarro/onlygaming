@@ -1,94 +1,129 @@
-*{
-    margin: 0px;
+* {
+    margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-image: url('../../../assets/fondoPerfil.jpg');
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
+body {
+    background-color: #0d1b2a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
 }
 
-.lateral{
+/* MENU LATERAL */
+.lateral {
     position: fixed;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 97px;
-    background-color: rgb(44, 43, 43);
+    height: 100vh;
+    width: 180px;
+    background-color: #0d1b2a;
     color: white;
+    padding: 8px 4px;
 }
 
-.logo{
+.logo {
     font-weight: bold;
     font-size: 28px;
-    color: #EE0000;
+    color: #ffcc00;
     width: 100%;
     text-align: center;
-    margin: 8px 0;
+    margin: 12px 0;
 }
 
-.logo:hover{
-    cursor: default;
+.logo span {
+    color: #eeeeee;
 }
 
-.logo span{
-    color: #EEEEEE;
-}
-
-.logout-btn{
-    color: #EE0000;
-    text-decoration: none;
-    background-color: transparent;
-    box-shadow: none;
+/* BOTONES DEL MENU LATERAL */
+.btn, .admin-btn, .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    padding: 10px 12px;
     border: none;
     border-radius: 6px;
-    width: calc(100% - 8px);
-    margin: 5px 4px;
-}
-
-.logout-btn:hover{
-    background-color: #BB0000;
-    color: #EEEEEE;
-}
-
-.lateral mat-icon{
-    color:white;
-}
-
-.lateral a, .lateral img{
-    color: white;
-    text-decoration: none;
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.btn{
     background-color: transparent;
+    color: white;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: inherit;
+    font-weight: 600;
     box-shadow: none;
-    border-radius: 0%;
-    width: 100%;
 }
 
-.contenido{
+.btn mat-icon, .admin-btn mat-icon, .logout-btn mat-icon {
+    color: white;
+}
+
+.btn:hover, .admin-btn:hover, .logout-btn:hover {
+    background-color: #1a2c45;
+}
+
+.admin-btn {
+    color: #ffcc00;
+}
+
+.admin-btn:hover {
+    background-color: #e6b800;
+    color: #0d1b2a;
+}
+
+.logout-btn {
+    color: #ff4444;
+}
+
+.logout-btn:hover {
+    background-color: #aa0000;
+    color: white;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido {
     position: relative;
-    width: calc(100% - 98px);
-    height: 100%;
-    margin-left: 98px;
-    overflow: auto;
+    height: 100vh;
+    margin-left: 180px;
+    margin-right: 20%;
+    width: calc(100% - 180px - 20%);
+    overflow-y: auto;
+    background-color: #12233a;
+    color: white;
+    padding: 20px 60px;
+    font-family: inherit;
+    scrollbar-width: thin;
+    scrollbar-color: #0d1b2a #12233a;
 }
 
-.perfil{
-    width: 60%;
-    height: 300%;
-    margin-left: 20%;
-    background-color: rgb(44, 43, 43);  
-}
-
-.informacion{
+/* PERFIL (Avatares, usuario, bio) */
+.perfil {
+    background-color: #1b2a44;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    padding: 40px;
+    max-width: 700px;
+    margin: 40px auto;
     text-align: center;
-    width: 100%;
-    padding: 60px;
-    border-bottom: 1px solid white; 
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-bottom: 16px;
+}
+
+.perfil h2 {
+    font-size: 26px;
+    color: #ffcc00;
+    margin-bottom: 4px;
+}
+
+.username {
+    font-size: 14px;
+    color: #bbb;
+    margin: 4px 0 12px 0;
 }

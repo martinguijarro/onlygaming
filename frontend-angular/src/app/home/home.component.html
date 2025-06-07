@@ -1,44 +1,73 @@
 <body>
-    <div class="lateral">
-        <p class="logo">O<span>G</span></p>
+  <div class="lateral">
+    <p class="logo"><span>Only</span>Gaming</p>
 
-        <button mat-fab class="btn" (click)="home()">
-            <mat-icon>home</mat-icon>
-        </button>
-        
-        <button *ngIf="!isLoggedIn" mat-fab class="btn" (click)="login()">
-            <mat-icon>person</mat-icon>
-        </button>
-
-        <button *ngIf="isLoggedIn" mat-fab class="btn" (click)="profile()">
-            <mat-icon>person</mat-icon>
-        </button>
-
-        <button mat-fab class="btn" (click)="communities()">
-            <mat-icon>groups</mat-icon>
-        </button>
-        
-        <button mat-fab class="btn" class="btn" (click)="games()">
-            <mat-icon>games</mat-icon>
-        </button>
-
-        <button *ngIf="isAdmin" class="admin-btn" (click)="admin()">Panel admin</button>
-        <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
-    </div>
-
-    <div class="contenido">
-        <div *ngFor="let post of posts" class="post">
-            <p class="post-user">{{ post.userName }} <span>{{'@' + post.userUsername }} · {{ post.date }}</span></p>
-            <p class="post-game">{{ post.game }}</p>
-            <p class="post-text">{{ post.text }}</p>
-        </div>
-    </div>
-
-    <div class="recomendaciones">
-        <h1>Juegos populares</h1>
-    </div>
-
-    <button *ngIf="isLoggedIn" mat-fab class="new-comment-btn" (click)="newComment()">
-        <mat-icon>add</mat-icon>
+    <button class="btn" (click)="home()">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
     </button>
+
+    <button *ngIf="!isLoggedIn" class="btn" (click)="login()">
+      <mat-icon>person</mat-icon>
+      <span>Iniciar sesión</span>
+    </button>
+
+    <button *ngIf="isLoggedIn" class="btn" (click)="profile()">
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
+
+    <button class="btn" (click)="communities()">
+      <mat-icon>groups</mat-icon>
+      <span>Comunidades</span>
+    </button>
+
+    <button class="btn" (click)="games()">
+      <mat-icon>games</mat-icon>
+      <span>Juegos</span>
+    </button>
+
+    <button *ngIf="isAdmin" class="admin-btn" (click)="admin()">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Panel admin</span>
+    </button>
+
+    <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+  </div>
+
+  <div class="contenido">
+    <div *ngFor="let post of posts" class="post">
+      <p class="post-user">
+        {{ post.userName }}<span>{{ '@' + post.userUsername }} · {{ post.date | date:'dd/MM/yyyy HH:mm' }}</span>
+      </p>
+      <p class="post-game">{{ post.game }}</p>
+      <p class="post-text">{{ post.text }}</p>
+
+      <div class="post-actions">
+        <button mat-icon-button (click)="toggleLike(post)">
+          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
+        </button>
+        <span>{{ post.likes.length || 0 }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="recomendaciones">
+    <h1>Juegos populares</h1>
+    <ul class="popular-games-list">
+        <li *ngFor="let game of popularGames" class="popular-game-item">
+        <div class="game-info">
+            <p class="game-name">{{ game.name }} {{ game.releaseDate | date:'(yyyy)' }}</p>
+            <p class="game-players">{{ game.developer }}</p>
+        </div>
+        </li>
+    </ul>
+  </div>
+
+  <button *ngIf="isLoggedIn" mat-fab class="new-comment-btn" (click)="newComment()">
+    <mat-icon>add</mat-icon>
+  </button>
 </body>

@@ -34,6 +34,9 @@ public class Game {
 	@Field(name = "release_date")
 	private String releaseDate;
 
+	@Field(name = "developer")
+	private String developer;
+
 	@Field(name = "image_url")
 	private String imageUrl;
 

@@ -1,6 +1,7 @@
 package com.onlygaming.Post;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,6 +17,7 @@ public class PostDTO {
     private String postId;
     private String text;
     private LocalDateTime date;
+    private List<String> likes;
     private String userName;
     private String userUsername;
     private String game;
