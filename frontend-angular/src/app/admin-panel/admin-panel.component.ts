@@ -32,6 +32,7 @@ export class AdminPanelComponent {
     this.gameForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
+      developer: ['', Validators.required],
       releaseDate: ['', Validators.required],
       imageUrl: ['', Validators.required]
     })

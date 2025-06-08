@@ -51,5 +51,11 @@ public class GameController {
 	}
 	
 	// Custom endpoints
+
+	@GetMapping("/games/popular")
+	public List<Game> getPopularGames() {
+		return gameService.getPopularGames();
+	}
+	
 	
 }

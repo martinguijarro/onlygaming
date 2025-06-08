@@ -20,4 +20,8 @@ export class GameService {
     createGame(game: Game) {
         return this.http.post<Game>(`${environment.backUrl}/game/create`, game, { withCredentials: false })
     }
+
+    getPopularGames() {
+        return this.http.get<Game[]>(`${environment.backUrl}/games/popular`, { withCredentials: false })
+    }
 }

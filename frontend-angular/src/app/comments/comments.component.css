@@ -6,3 +6,22 @@
 .comentario{
     width: 100%;
 }
+
+mat-form-field{
+    width: 360px;
+}
+
+.text{
+    resize: none;
+}
+
+.game{
+    margin: 5px 0;
+    height: 25px;
+}
+
+.submit-btn{
+    margin-top: 5px;
+    padding: 0 16px;
+    border-radius: 12px;
+}

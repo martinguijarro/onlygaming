@@ -1,5 +1,6 @@
 package com.onlygaming.Post;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,7 @@ public class PostService {
                 post.getPostId(),
                 post.getText(),
                 post.getDate(),
+                post.getLikes(),
                 userName,
                 userUsername,
                 gameName
@@ -58,6 +60,7 @@ public class PostService {
     }
 
     public Post createPost(Post post) {
+        post.setLikes(new ArrayList<>());
         return postRepository.save(post);
     }
 
@@ -84,5 +87,29 @@ public class PostService {
     }
 
     // Other methods
+
+    public ResponseEntity<Post> likePost(String postId, String username) throws ResourceNotFoundException {
+        Post post = postRepository.findById(postId)
+            .orElseThrow(() -> new ResourceNotFoundException("Post with id " + postId + " not found"));
+
+        if (!post.getLikes().contains(username)) {
+            post.getLikes().add(username);
+            postRepository.save(post);
+        }
+
+        return ResponseEntity.ok(post);
+    }
+
+    public ResponseEntity<Post> unlikePost(String postId, String username) throws ResourceNotFoundException {
+        Post post = postRepository.findById(postId)
+            .orElseThrow(() -> new ResourceNotFoundException("Post with id " + postId + " not found"));
+
+        if (post.getLikes().contains(username)) {
+            post.getLikes().remove(username);
+            postRepository.save(post);
+        }
+
+        return ResponseEntity.ok(post);
+    }
 
 }

@@ -1,35 +1,57 @@
 <body>
     <div class="lateral">
-        <p class="logo">O<span>G</span></p>
+    <p class="logo"><span>Only</span>Gaming</p>
 
-        <button mat-fab class="btn" (click)="home()">
-            <mat-icon>home</mat-icon>
-        </button>
-        
-        <button *ngIf="!isLoggedIn" mat-fab class="btn" (click)="login()">
-            <mat-icon>person</mat-icon>
-        </button>
-        
-        <button *ngIf="isLoggedIn" mat-fab class="btn" (click)="profile()">
-            <mat-icon>person</mat-icon>
-        </button>
-        
-        <button mat-fab class="btn" (click)="communities()">
-            <mat-icon>groups</mat-icon>
-        </button>
-        
-        <button mat-fab class="btn" class="btn" (click)="Games()">
-            <mat-icon>games</mat-icon>
-        </button>
-        
-        <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">Cerrar sesión</button>
-    </div>
+    <button class="btn" (click)="home()">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+    </button>
 
-    <div class="contenido">
-        <div *ngFor="let game of games" class="games">
-            <img [src]="game.imageUrl" alt="{{ game.name }}" class="imagen">
-            <h3 class="game-name">{{ game.name }}</h3>
-            <p class="game-id">{{ game.gameId }}</p>
-        </div>
+    <button *ngIf="!isLoggedIn" class="btn" (click)="login()">
+      <mat-icon>person</mat-icon>
+      <span>Iniciar sesión</span>
+    </button>
+
+    <button *ngIf="isLoggedIn" class="btn" (click)="profile()">
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
+
+    <button class="btn" (click)="communities()">
+      <mat-icon>groups</mat-icon>
+      <span>Comunidades</span>
+    </button>
+
+    <button class="btn" (click)="Games()">
+      <mat-icon>games</mat-icon>
+      <span>Juegos</span>
+    </button>
+
+    <button *ngIf="isAdmin" class="admin-btn" (click)="admin()">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Panel admin</span>
+    </button>
+
+    <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+  </div>
+  
+  <div class="contenido">
+    <div *ngFor="let game of games" class="game">
+      <img class="images" src={{game.imageUrl}} (click)="Showdesc()">
+      <!-- Al clickar en el nombre te lleva a un componente con los post con ese juego -->
+      <a href="#" class="game-name">{{ game.name }}</a>
+      <p class="game-developer">{{ game.developer }}</p>
+      <p class="game-date">{{ game.releaseDate }}</p>
+
+      <div class="post-actions">
+        <!-- <button mat-icon-button (click)="toggleLike(post)">
+          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
+        </button> -->
+        <!-- <span>{{ post.likes.length || 0 }}</span> -->
+      </div>
     </div>
+  </div>
 </body>

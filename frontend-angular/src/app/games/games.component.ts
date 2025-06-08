@@ -21,6 +21,7 @@ import { Game } from '../models/game.model';
 })
 export class GamesComponent {
   
+  isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   username: string | null = null;
   games:Game[]=[];
@@ -36,8 +37,16 @@ export class GamesComponent {
 
   logout() {
     localStorage.removeItem('username');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userRole');
+    this.isAdmin = false;
     this.isLoggedIn = false;
+    this.username = null;
     console.log('User logged out');
+  }
+
+  admin() {
+    this.router.navigate(['/admin']);
   }
 
   register() {
@@ -66,10 +75,16 @@ export class GamesComponent {
       this.isLoggedIn = true;
     }
 
-    this.gameService.getGames().subscribe(game=>{
-      this.games=game;
-      console.log('Juegos recibidos:', this.games);
+    if(localStorage.getItem('userRole') === 'ADMIN') {
+      this.isAdmin = true;
+    }
+
+    this.gameService.getGames().subscribe(games=>{
+      this.games=games;
     });
   }
 
+  Showdesc(){
+    //Dialog que muestar la descripcion
+  }
 }

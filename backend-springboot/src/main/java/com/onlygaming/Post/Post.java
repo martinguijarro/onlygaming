@@ -1,6 +1,7 @@
 package com.onlygaming.Post;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -29,6 +30,9 @@ public class Post {
     @NotNull
     @Field(name = "date")
     private LocalDateTime date = LocalDateTime.now();
+
+    @Field(name = "likes")
+    private List<String> likes;
 
     @NotNull
     @Field(name = "user_id")

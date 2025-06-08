@@ -46,10 +46,6 @@ export class RegisterComponent {
     this.router.navigate(['login']);
   }
 
-  register(){
-    this.router.navigate(['']);
-  }
-
   cancelRegister(){
     this.router.navigate(['']);
   }

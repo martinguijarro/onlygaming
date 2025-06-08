@@ -54,4 +54,14 @@ public class PostController {
 
     // Custom endpoints
 
+    @PostMapping("/post/{postId}/like")
+    public ResponseEntity<Post> likePost(@PathVariable String postId, @RequestBody String username) throws ResourceNotFoundException {
+        return postService.likePost(postId, username);
+    }
+
+    @PostMapping("/post/{postId}/unlike")
+    public ResponseEntity<Post> unlikePost(@PathVariable String postId, @RequestBody String username) throws ResourceNotFoundException {
+        return postService.unlikePost(postId, username);
+    }
+    
 }

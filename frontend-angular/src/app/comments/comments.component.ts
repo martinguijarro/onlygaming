@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor } from '@angular/common';
 
@@ -31,7 +31,8 @@ export class CommentsComponent {
   constructor(
     private gameService: GameService,
     private postService: PostService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<CommentsComponent>
   ){
     this.postForm = this.fb.group({
       text: ['', Validators.required],
@@ -53,7 +54,7 @@ export class CommentsComponent {
     this.postService.createPost(newPost).subscribe({
       next: res => {
         console.log('Post creado: ', res);
-        location.reload();
+        this.dialogRef.close(true);
       },
       error: err => {
         console.error('Error al crear post: ', err);
