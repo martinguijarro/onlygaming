@@ -8,6 +8,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
+import { PostService } from '../services/post.service';
+import { PostDTO } from '../models/post.model';
 
 @Component({
   selector: 'app-perfil',
@@ -30,11 +32,35 @@ export class ProfileComponent implements OnInit {
   username: string | null = null;
 
   user: any = {};
+  posts: PostDTO[] = [];
+  postsUser: PostDTO[] = [];
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private postService: PostService,
   ) {}
+
+  toggleLike(post: PostDTO) {
+    const username = this.username;
+    if (!username) return;
+
+    const hasLiked = post.likes.includes(username);
+
+    if (!hasLiked) {
+      console.log("Post " + post.postId + " liked by " + username);
+    } else {
+      console.log("Post " + post.postId + " disliked by " + username);
+    }
+
+    const like$ = hasLiked
+      ? this.postService.unlikePost(post.postId, username)
+      : this.postService.likePost(post.postId, username);
+
+    like$.subscribe((updatedPost) => {
+      post.likes = updatedPost.likes;
+    });
+  }
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
@@ -59,6 +85,16 @@ export class ProfileComponent implements OnInit {
         }
       })
     }
+
+    this.postService.getPosts().subscribe((data) => {
+      this.posts=data;
+      const userName = this.posts.map(post => post.userName);
+      console.log(userName)
+      console.log(localStorage.getItem('username'))
+      if(userName[0]==localStorage.getItem('username')){
+        this.postsUser=this.posts;
+      }
+    });
   }
 
   login() {
