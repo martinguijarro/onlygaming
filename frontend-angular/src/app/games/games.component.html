@@ -46,12 +46,7 @@
       <p class="game-developer">{{ game.developer }}</p>
       <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
 
-      <button
-        *ngIf="isLoggedIn"
-        class="add-btn"
-        [disabled]="userGameIds.has(game.gameId)"
-        (click)="addToMyList(game.gameId)">
-        
+      <button *ngIf="isLoggedIn" class="add-btn" (click)="addToMyList(game.gameId)">
         <mat-icon>{{ userGameIds.has(game.gameId) ? 'check' : 'add' }}</mat-icon>
         {{ userGameIds.has(game.gameId) ? 'Ya en tu lista' : 'Añadir a mi lista' }}
       </button>

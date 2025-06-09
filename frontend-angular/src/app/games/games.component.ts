@@ -89,8 +89,7 @@ export class GamesComponent {
     });
 
     if (userId) {
-      this.gameService.getGamesByUser(userId).subscribe((res: any) => {
-        const games = res.games;
+      this.gameService.getGamesByUser(userId).subscribe((games: Game[]) => {
         this.userGameIds = new Set(games.map((game: Game) => game.gameId));
       });
     }
@@ -102,31 +101,29 @@ export class GamesComponent {
   }
 
   addToMyList(gameId: string) {
-  const userId = localStorage.getItem('userId');
-  if (!userId) return;
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
 
-  if (this.userGameIds.has(gameId)) {
-    alert('Este juego ya está en tu lista.');
-    return;
-  }
-
-  const userGame: UserGameModel = {
-    userId: userId,
-    gameId: gameId,
-    status: GameStatus.JUGANDO
-  };
-
-  this.gameService.addGameToUser(userGame).subscribe({
-    next: () => {
-      alert('Juego añadido a tu lista.');
-      this.userGameIds.add(gameId);
-    },
-    error: (err) => {
-      console.error('Error al añadir juego', err);
-      alert('Error al añadir el juego.');
+    if (this.userGameIds.has(gameId)) {
+      alert('Este juego ya está en tu lista.');
+      return;
     }
-  });
-}
 
+    const userGame: UserGameModel = {
+      userId: userId,
+      gameId: gameId,
+      status: GameStatus.JUGANDO
+    };
+
+    this.gameService.addGameToUser(userGame).subscribe({
+      next: () => {
+        this.userGameIds.add(gameId);
+      },
+      error: (err) => {
+        console.error('Error al añadir juego', err);
+        alert('Error al añadir el juego.');
+      }
+    });
+  }
 
 }
