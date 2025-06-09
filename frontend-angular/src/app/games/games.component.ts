@@ -6,6 +6,8 @@ import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { GameService } from '../services/game.service';
 import { Game } from '../models/game.model';
+import { GameStatus } from '../models/enums';
+import { UserGameModel } from '../models/usergame.model';
 
 @Component({
   selector: 'app-games',
@@ -24,7 +26,8 @@ export class GamesComponent {
   isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   username: string | null = null;
-  games:Game[]=[];
+  games: Game[] = [];
+  userGameIds: Set<string> = new Set();
   
   constructor(
     private router: Router,
@@ -71,6 +74,8 @@ export class GamesComponent {
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
+    const userId = localStorage.getItem('userId');
+
     if (this.username) {
       this.isLoggedIn = true;
     }
@@ -79,12 +84,46 @@ export class GamesComponent {
       this.isAdmin = true;
     }
 
-    this.gameService.getGames().subscribe(games=>{
-      this.games=games;
+    this.gameService.getGames().subscribe(games => {
+      this.games = games.sort((a, b) => a.name.localeCompare(b.name));
     });
+
+    if (userId) {
+      this.gameService.getGamesByUser(userId).subscribe((games: Game[]) => {
+        this.userGameIds = new Set(games.map((game: Game) => game.gameId));
+      });
+    }
   }
 
   Showdesc(){
     //Dialog que muestar la descripcion
+    console.log('Mostrar descripcion');
   }
+
+  addToMyList(gameId: string) {
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
+
+    if (this.userGameIds.has(gameId)) {
+      alert('Este juego ya está en tu lista.');
+      return;
+    }
+
+    const userGame: UserGameModel = {
+      userId: userId,
+      gameId: gameId,
+      status: GameStatus.JUGANDO
+    };
+
+    this.gameService.addGameToUser(userGame).subscribe({
+      next: () => {
+        this.userGameIds.add(gameId);
+      },
+      error: (err) => {
+        console.error('Error al añadir juego', err);
+        alert('Error al añadir el juego.');
+      }
+    });
+  }
+
 }
