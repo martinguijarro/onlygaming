@@ -40,18 +40,11 @@
   
   <div class="contenido">
     <div *ngFor="let game of games" class="game">
-      <img class="images" src={{game.imageUrl}} (click)="Showdesc()">
+      <img class="images" [src]="'assets/images/' + game.imageUrl" (click)="Showdesc()"/>
       <!-- Al clickar en el nombre te lleva a un componente con los post con ese juego -->
       <a href="#" class="game-name">{{ game.name }}</a>
       <p class="game-developer">{{ game.developer }}</p>
-      <p class="game-date">{{ game.releaseDate }}</p>
-
-      <div class="post-actions">
-        <!-- <button mat-icon-button (click)="toggleLike(post)">
-          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
-        </button> -->
-        <!-- <span>{{ post.likes.length || 0 }}</span> -->
-      </div>
+      <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
     </div>
   </div>
 </body>

@@ -79,12 +79,13 @@ export class GamesComponent {
       this.isAdmin = true;
     }
 
-    this.gameService.getGames().subscribe(games=>{
-      this.games=games;
+    this.gameService.getGames().subscribe(games => {
+      this.games = games.sort((a, b) => a.name.localeCompare(b.name));
     });
   }
 
   Showdesc(){
     //Dialog que muestar la descripcion
+    console.log('Mostrar descripcion');
   }
 }
