@@ -82,7 +82,7 @@ export class HomeComponent {
 
   newComment() {
     const dialogRef = this.dialog.open(CommentsComponent, {
-      width: '500px',
+      width: 'auto',
       panelClass: 'dialog-comentario'
     });
 
