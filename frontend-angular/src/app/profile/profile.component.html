@@ -41,8 +41,21 @@
     <div class="contenido">
         <div class="perfil">
             <div class="informacion">
-                <h2>{{ user.name }}</h2>
-                <p class="username">{{'@' + user.username }}</p>
+            <h2>{{ user.name }}</h2>
+            <p class="username">{{ '@' + user.username }}</p>
+            </div>
+
+            <div class="user-games">
+            <h3>Mis Juegos</h3>
+            <div *ngIf="userGames.length === 0">No has añadido ningún juego todavía.</div>
+            <div class="games-list" *ngIf="userGames.length > 0">
+                <div *ngFor="let game of userGames" class="game">
+                <img class="images" [src]="'assets/images/' + game.imageUrl" />
+                <a href="#" class="game-name">{{ game.name }}</a>
+                <p class="game-developer">{{ game.developer }}</p>
+                <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
+                </div>
+            </div>
             </div>
         </div>
     </div>

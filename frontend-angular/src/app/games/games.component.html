@@ -40,11 +40,21 @@
   
   <div class="contenido">
     <div *ngFor="let game of games" class="game">
-      <img class="images" [src]="'assets/images/' + game.imageUrl" (click)="Showdesc()"/>
-      <!-- Al clickar en el nombre te lleva a un componente con los post con ese juego -->
+      <img class="images" [src]="'assets/images/' + game.imageUrl" (click)="Showdesc()" />
+      
       <a href="#" class="game-name">{{ game.name }}</a>
       <p class="game-developer">{{ game.developer }}</p>
       <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
+
+      <button
+        *ngIf="isLoggedIn"
+        class="add-btn"
+        [disabled]="userGameIds.has(game.gameId)"
+        (click)="addToMyList(game.gameId)">
+        
+        <mat-icon>{{ userGameIds.has(game.gameId) ? 'check' : 'add' }}</mat-icon>
+        {{ userGameIds.has(game.gameId) ? 'Ya en tu lista' : 'Añadir a mi lista' }}
+      </button>
     </div>
   </div>
 </body>
