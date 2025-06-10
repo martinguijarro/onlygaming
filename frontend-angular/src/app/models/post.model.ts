@@ -27,9 +27,9 @@ export class PostDTO {
     likes: string[];
     userName: string;
     userUsername: string;
-    game: number;
+    game: string;
 
-    constructor(postId: string, text: string, date: Date, likes: string[], userName: string, userUsername: string, game: number) {
+    constructor(postId: string, text: string, date: Date, likes: string[], userName: string, userUsername: string, game: string) {
         this.postId = postId;
         this.text = text;
         this.date = date;

@@ -40,9 +40,8 @@
   
   <div class="contenido">
     <div *ngFor="let game of games" class="game">
-      <img class="images" [src]="'assets/images/' + game.imageUrl" (click)="Showdesc()" />
-      
-      <a href="#" class="game-name">{{ game.name }}</a>
+      <img class="images" [src]="game.imageUrl" (click)="Showdesc()" />
+      <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }}</a>
       <p class="game-developer">{{ game.developer }}</p>
       <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
 

@@ -50,8 +50,8 @@
             <div *ngIf="userGames.length === 0">No has añadido ningún juego todavía.</div>
             <div class="games-list" *ngIf="userGames.length > 0">
                 <div *ngFor="let game of userGames" class="game">
-                <img class="images" [src]="'assets/images/' + game.imageUrl" />
-                <a href="#" class="game-name">{{ game.name }}</a>
+                <img class="images" [src]="game.imageUrl" />
+                <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }}</a>
                 <p class="game-developer">{{ game.developer }}</p>
                 <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
                 </div>

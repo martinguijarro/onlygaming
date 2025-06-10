@@ -39,23 +39,28 @@
   </div>
 
   <div class="contenido">
-    <div *ngFor="let post of posts" class="post">
-      <p class="post-user">
-        {{ post.userName }}<span>{{ '@' + post.userUsername }} · {{ post.date | date:'dd/MM/yyyy HH:mm' }}</span>
-      </p>
-      <a [routerLink]="['/game', post.game]" class="post-game">{{ post.game }}</a>
-      <p class="post-text">{{ post.text }}</p>
+    <div *ngIf="posts.length > 0; else noPosts">
+        <div *ngFor="let post of posts" class="post">
+            <p class="post-user">
+                {{ post.userName }}<span>{{ '@' + post.userUsername }} · {{ post.date | date:'dd/MM/yyyy HH:mm' }}</span>
+            </p>
+            <a [routerLink]="['/game', post.game]" class="post-game">{{ post.game }}</a>
+            <p class="post-text">{{ post.text }}</p>
 
-      <div class="post-actions">
-        <button mat-icon-button (click)="toggleLike(post)">
-          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
-        </button>
-        <span>{{ post.likes.length || 0 }}</span>
-      </div>
+            <div class="post-actions">
+                <button mat-icon-button (click)="toggleLike(post)">
+                <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
+                </button>
+                <span>{{ post.likes.length || 0 }}</span>
+            </div>
+        </div>
     </div>
+    <ng-template #noPosts>
+        <h2 class="no-posts">No hay publicaciones de este videojuego.</h2>
+    </ng-template>
   </div>
 
-  <div class="recomendaciones">
+  <!-- <div class="recomendaciones">
     <h1>Juegos populares</h1>
     <ul class="popular-games-list">
         <li *ngFor="let game of popularGames" class="popular-game-item">
@@ -65,7 +70,7 @@
         </div>
         </li>
     </ul>
-  </div>
+  </div> -->
 
   <button *ngIf="isLoggedIn" mat-fab class="new-comment-btn" (click)="newComment()">
     <mat-icon>add</mat-icon>
