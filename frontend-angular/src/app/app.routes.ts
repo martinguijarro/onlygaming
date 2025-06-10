@@ -8,6 +8,7 @@ import { GamesComponent } from './games/games.component';
 import { CommunitiesComponent } from './communities/communities.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { GamepostComponent } from './gamepost/gamepost.component';
+import { ReportedpostComponent } from './reportedposts/reportedposts.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,10 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminPanelComponent
+  },
+  {
+    path: 'reportedposts',
+    component: ReportedpostComponent
   },
   { 
     path: 'game/:gameName',

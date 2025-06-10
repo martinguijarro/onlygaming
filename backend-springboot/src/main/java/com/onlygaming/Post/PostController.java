@@ -42,12 +42,12 @@ public class PostController {
         return postService.createPost(post);
     }
 
-    @PutMapping("/user/{postId}/edit")
+    @PutMapping("/post/{postId}/edit")
     public ResponseEntity<Post> updatePost(@PathVariable String postId, @Valid @RequestBody Post postDetails) throws ResourceNotFoundException {
         return postService.updatePost(postId, postDetails);
     }
 
-    @DeleteMapping("/user/{postId}/delete")
+    @DeleteMapping("/post/{postId}/delete")
     public Map<String, Boolean> deletePost(@PathVariable String postId) throws ResourceNotFoundException {
         return postService.deletePost(postId);
     }
@@ -74,4 +74,10 @@ public class PostController {
         return postService.RemovereportPost(postId, username);
     }
     
+    @PostMapping("/post/{postId}/clear_reports")
+    public ResponseEntity<Post> clearReports(@PathVariable String postId) throws ResourceNotFoundException {
+        return postService.clearReports(postId);
+    }
+
+
 }

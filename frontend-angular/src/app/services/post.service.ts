@@ -22,6 +22,10 @@ export class PostService {
         return this.http.post(`${environment.backUrl}/post/create`, post, { withCredentials: false })
     }
 
+    deletePost(postId: string) {
+        return this.http.delete<Map<string, boolean>>(`${environment.backUrl}/post/${postId}/delete`);
+    }
+
     likePost(postId: string, username: string) {
         return this.http.post<PostDTO>(`${environment.backUrl}/post/${postId}/like`, username, { withCredentials: false })
     }
@@ -38,5 +42,9 @@ export class PostService {
     RemovereportPost(postId: string, username: string) {
         const headers = new HttpHeaders({ 'Content-Type': 'text/plain' });
         return this.http.post<PostDTO>(`${environment.backUrl}/post/${postId}/remove_report`, username, { withCredentials: false, headers})
+    }
+
+    clearReportsPost(postId: string) {
+        return this.http.post<PostDTO>(`${environment.backUrl}/post/${postId}/clear_reports`, null)
     }
 }

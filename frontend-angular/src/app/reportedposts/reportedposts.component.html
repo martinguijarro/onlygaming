@@ -62,19 +62,17 @@
         </button>
         <span>{{ post.reports?.length || 0 }}</span>
       </div>
-    </div>
-  </div>
 
-  <div class="recomendaciones">
-    <h1>Juegos populares</h1>
-    <ul class="popular-games-list">
-        <li *ngFor="let game of popularGames" class="popular-game-item">
-        <div class="game-info">
-            <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }} {{ game.releaseDate | date:'(yyyy)' }}</a>
-            <p class="game-players">{{ game.developer }}</p>
-        </div>
-        </li>
-    </ul>
+      <div class="post-actions">
+        <button mat-icon-button (click)="deleteReports(post)">
+          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">refresh</mat-icon>
+        </button>
+
+        <button mat-icon-button (click)="deletePost(post.postId)">
+          <mat-icon [ngClass]="{'reported': post.reports?.includes(username!)}">delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 
   <button *ngIf="isLoggedIn" mat-fab class="new-comment-btn" (click)="newComment()">

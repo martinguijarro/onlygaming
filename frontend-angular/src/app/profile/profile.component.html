@@ -17,10 +17,10 @@
             <span>Perfil</span>
         </button>
 
-        <button class="btn" (click)="communities()">
+        <!-- <button class="btn" (click)="communities()">
             <mat-icon>groups</mat-icon>
             <span>Comunidades</span>
-        </button>
+        </button> -->
 
         <button class="btn" (click)="games()">
             <mat-icon>games</mat-icon>
@@ -30,6 +30,11 @@
         <button *ngIf="isAdmin" class="admin-btn" (click)="admin()">
             <mat-icon>admin_panel_settings</mat-icon>
             <span>Panel admin</span>
+        </button>
+
+        <button *ngIf="isAdmin" class="admin-btn" (click)="reportedposts()">
+            <mat-icon>admin_panel_settings</mat-icon>
+            <span>Posts reportados</span>
         </button>
 
         <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">
