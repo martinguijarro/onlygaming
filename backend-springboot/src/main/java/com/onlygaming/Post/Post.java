@@ -34,6 +34,9 @@ public class Post {
     @Field(name = "likes")
     private List<String> likes;
 
+    @Field(name = "reports")
+    private List<String> reports;
+
     @NotNull
     @Field(name = "user_id")
     private String userId;

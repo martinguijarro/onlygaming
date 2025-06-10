@@ -114,6 +114,27 @@ export class HomeComponent {
     });
   }
 
+  toggleReport(post: PostDTO) {
+    const username = this.username;
+    if (!username) return;
+
+    const hasReported = post.reports?.includes(username) ?? false;
+
+    if (!hasReported) {
+      console.log("Post " + post.postId + " reported by " + username);
+    } else {
+      console.log("Post " + post.postId + " remove reported by " + username);
+    }
+
+    const report$ = hasReported
+      ? this.postService.RemovereportPost(post.postId, username)
+      : this.postService.reportPost(post.postId, username);
+
+    report$.subscribe((updatedPost) => {
+      post.reports = updatedPost.reports;
+    });
+  }
+
   refreshPosts() {
     this.postService.getPosts().subscribe((data) => {
       this.posts = data;

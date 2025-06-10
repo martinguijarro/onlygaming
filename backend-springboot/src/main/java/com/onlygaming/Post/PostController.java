@@ -63,5 +63,15 @@ public class PostController {
     public ResponseEntity<Post> unlikePost(@PathVariable String postId, @RequestBody String username) throws ResourceNotFoundException {
         return postService.unlikePost(postId, username);
     }
+
+    @PostMapping("/post/{postId}/report")
+    public ResponseEntity<Post> reportPost(@PathVariable String postId, @RequestBody String username) throws ResourceNotFoundException {
+        return postService.reportPost(postId, username);
+    }
+
+    @PostMapping("/post/{postId}/remove_report")
+    public ResponseEntity<Post> RemovereportPost(@PathVariable String postId, @RequestBody String username) throws ResourceNotFoundException {
+        return postService.RemovereportPost(postId, username);
+    }
     
 }

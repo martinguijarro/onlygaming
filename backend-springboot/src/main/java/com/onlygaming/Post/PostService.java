@@ -45,6 +45,7 @@ public class PostService {
                 post.getText(),
                 post.getDate(),
                 post.getLikes(),
+                post.getReports(),
                 userName,
                 userUsername,
                 gameName
@@ -61,6 +62,7 @@ public class PostService {
 
     public Post createPost(Post post) {
         post.setLikes(new ArrayList<>());
+        post.setReports(new ArrayList<>());
         return postRepository.save(post);
     }
 
@@ -112,4 +114,27 @@ public class PostService {
         return ResponseEntity.ok(post);
     }
 
+    public ResponseEntity<Post> reportPost(String postId, String username) throws ResourceNotFoundException {
+        Post post = postRepository.findById(postId)
+            .orElseThrow(() -> new ResourceNotFoundException("Post with id " + postId + " not found"));
+
+        if (!post.getReports().contains(username)) {
+            post.getReports().add(username);
+            postRepository.save(post);
+        }
+
+        return ResponseEntity.ok(post);
+    }
+
+    public ResponseEntity<Post> RemovereportPost(String postId, String username) throws ResourceNotFoundException {
+        Post post = postRepository.findById(postId)
+            .orElseThrow(() -> new ResourceNotFoundException("Post with id " + postId + " not found"));
+
+        if (post.getReports().contains(username)) {
+            post.getReports().remove(username);
+            postRepository.save(post);
+        }
+
+        return ResponseEntity.ok(post);
+    }
 }
