@@ -9,7 +9,7 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
 }
 
 /* Título */
@@ -24,20 +24,12 @@
 .contenedor form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 8px;
 }
 
 /* Mat form field - ancho completo */
 mat-form-field {
     width: 100%;
-}
-
-/* Fondo y bordes del campo de texto */
-.mat-mdc-form-field-infix {
-    background-color: #12233a;
-    border-radius: 4px;
-    color: white;
-    padding: 4px 8px;
 }
 
 /* Textarea */
@@ -57,7 +49,7 @@ textarea.text {
 /* Select */
 select.game {
     width: 100%;
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: 6px;
     background-color: #12233a;
     color: white;
@@ -76,7 +68,7 @@ select.game:hover {
     background-color: #12233a;
     border: 1px solid #223355;
     color: white;
-    padding: 12px 0;
+    padding: 8px 0;
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
