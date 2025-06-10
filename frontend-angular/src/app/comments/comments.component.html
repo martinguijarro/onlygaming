@@ -5,7 +5,7 @@
 
     <div mat-dialog-content>
         <form [formGroup]="postForm" (ngSubmit)="createPost()">
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-label>Texto</mat-label>
                 <textarea matInput class="text" rows="3" formControlName="text"></textarea>
             </mat-form-field>
