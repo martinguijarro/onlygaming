@@ -1,27 +1,90 @@
-.contenedor{
-    padding: 40px;
-    background-color: lightgrey;
+/* Contenedor principal del diálogo */
+.contenedor {
+    background-color: #1b2a44;
+    border-radius: 20px;
+    padding: 10px 24px;
+    width: 400px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.comentario{
+/* Título */
+.contenedor h1 {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Formulario */
+.contenedor form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Mat form field - ancho completo */
+mat-form-field {
     width: 100%;
 }
 
-mat-form-field{
-    width: 360px;
+/* Fondo y bordes del campo de texto */
+.mat-mdc-form-field-infix {
+    background-color: #12233a;
+    border-radius: 4px;
+    color: white;
+    padding: 4px 8px;
 }
 
-.text{
-    resize: none;
+/* Textarea */
+textarea.text {
+    background-color: #12233a;
+    color: white !important;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    resize: vertical;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
 }
 
-.game{
-    margin: 5px 0;
-    height: 25px;
+/* Select */
+select.game {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #12233a;
+    color: white;
+    border: 1px solid #223355;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.submit-btn{
-    margin-top: 5px;
-    padding: 0 16px;
-    border-radius: 12px;
+select.game:hover {
+    background-color: #1a2c45;
+    border-color: #446688;
+}
+
+/* Botón publicar */
+.submit-btn {
+    background-color: #12233a;
+    border: 1px solid #223355;
+    color: white;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1a2c45;
+    border-color: #446688;
 }

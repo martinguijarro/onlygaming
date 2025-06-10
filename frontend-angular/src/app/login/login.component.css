@@ -1,59 +1,117 @@
-body{
-    background-image: url("../../assets/fondo_login.jpg");
+/* RESET */
+* {
+    margin: 0;
+    box-sizing: border-box;
 }
 
-mat-card{
-    width: 44%;
-    padding: 30px;
-    top: 25%;
-    left: 28%;
-    text-align: center;
-    opacity: 0.9;
-}
-
-mat-form-field, .buttons{
-    width: 100%;
-}
-
-.login-btn{
-    font-size: 20px;
-    color: rgba(0, 0, 139, 0.6);
-    width: calc(50% - 5px);
-    margin-right: 10px;
-    border: 1px solid rgba(0, 0, 139, 0.2);
-    border-radius: 12px;
-}
-
-.register-btn{
-    font-size: 20px;
-    color: rgba(0, 0, 139, 0.6);
-    width: calc(50% - 5px);
-    border: 1px solid rgba(0, 0, 139, 0.2);
-    border-radius: 12px;
-}
-
-.close-btn{
-    font-size: 24px;
-    font-weight: bold;
+body {
+    background-color: #0d1b2a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    background-color: #EE0000;
-    width: 32px;
-    border: none;
-    border-radius: 5px;
-    position: absolute;
-    top: 8px;
-    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-.close-btn:hover{
-    background-color: #BB0000;
-    color: #DDDDDD;
+/* LOGIN CARD */
+mat-card {
+    width: 400px;
+    padding: 40px 30px;
+    background-color: #1b2a44;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    text-align: center;
 }
 
+/* TITULO */
 h1 {
     margin-bottom: 30px;
+    font-size: 24px;
+    color: #ffcc00;
 }
 
-.desc{
+/* FORMULARIO */
+mat-form-field {
+    width: 100%;
     margin-bottom: 20px;
+}
+
+.mat-mdc-form-field-infix {
+    background-color: #12233a;
+    color: white;
+    border-radius: 4px;
+}
+
+/* BOTONES */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.login-btn,
+.register-btn {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px 0;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: inherit;
+    color: #0d1b2a;
+}
+
+.login-btn,
+.register-btn {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px 0;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid #223355;
+    background-color: #12233a;
+    color: white;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.register-btn {
+    white-space: normal; /* Permite salto de línea */
+    line-height: 1.2;
+    text-align: center;
+}
+
+
+/* Hover para ambos */
+.login-btn:hover,
+.register-btn:hover {
+    background-color: #1a2c45;
+    border-color: #446688;
+}
+
+/* BOTÓN CERRAR */
+.close-btn {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #ef4444;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background-color: #b91c1c;
 }

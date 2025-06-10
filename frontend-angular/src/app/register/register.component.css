@@ -1,59 +1,107 @@
-body{
-    background-image: url("../../assets/fondo_login.jpg");
+/* RESET */
+* {
+    margin: 0;
+    box-sizing: border-box;
 }
 
-mat-card{
-    width: 44%;
-    padding: 30px;
-    top: 10%;
-    left: 28%;
+body {
+    background-color: #0d1b2a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px; /* Para que no pegue demasiado a los bordes en pantallas pequeñas */
+}
+
+/* REGISTER CARD */
+mat-card {
+    width: 420px; /* un poco más ancho para el formulario más largo */
+    padding: 40px 30px 50px 30px;
+    background-color: #1b2a44;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
     text-align: center;
-    opacity: 0.9;
+    max-height: 90vh;
+    overflow-y: auto; /* Para scroll si el contenido es muy largo */
 }
 
-mat-form-field, .login{
-    width: 100%;
-}
-
-.close-btn{
+/* TITULO */
+h1 {
+    margin-bottom: 30px;
     font-size: 24px;
+    color: #ffcc00;
+}
+
+/* FORMULARIO */
+mat-form-field {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.mat-mdc-form-field-infix {
+    background-color: #12233a;
+    color: white;
+    border-radius: 4px;
+}
+
+/* BOTONES */
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.register-btn,
+.login-btn {
+    flex: 1;
+    font-size: 16px;
+    padding: 12px 0;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid #223355;
+    background-color: #12233a;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.register-btn {
+    white-space: normal;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Hover para ambos botones */
+.register-btn:hover,
+.login-btn:hover {
+    background-color: #1a2c45;
+    border-color: #446688;
+}
+
+/* BOTÓN CERRAR */
+.close-btn {
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: #EE0000;
+    background-color: #ef4444;
     width: 32px;
+    height: 32px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.close-btn:hover{
-    background-color: #BB0000;
-    color: #DDDDDD;
-}
-
-.login{
-    font-size: 20px;
-}
-
-h1, .desc{
-    margin-bottom: 30px;
-}
-
-.register-btn{
-    font-size: 20px;
-    color: rgba(0, 0, 139, 0.6);
-    width: calc(50% - 5px);
-    margin-right: 10px;
-    border: 1px solid rgba(0, 0, 139, 0.2);
-    border-radius: 12px;
-}
-
-.login-btn{
-    font-size: 20px;
-    color: rgba(0, 0, 139, 0.6);
-    width: calc(50% - 5px);
-    border: 1px solid rgba(0, 0, 139, 0.2);
-    border-radius: 12px;
+.close-btn:hover {
+    background-color: #b91c1c;
 }
