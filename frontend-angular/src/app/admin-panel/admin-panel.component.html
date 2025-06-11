@@ -1,5 +1,11 @@
 <body>
     <div class="create-game">
+        <button class="back-btn" (click)="goHome()">
+            <mat-icon>arrow_back</mat-icon>
+            Volver al inicio
+        </button>
+
+        <h2>Crear juego</h2>
         <form [formGroup]="gameForm" (ngSubmit)="createGame()">
             <mat-form-field>
                 <mat-label>Nombre</mat-label>

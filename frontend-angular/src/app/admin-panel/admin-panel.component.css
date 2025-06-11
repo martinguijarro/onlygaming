@@ -1,7 +1,88 @@
-body{
-    background-color: rgb(44, 43, 43);
+.create-game {
+    padding: 40px;
+    background-color: #12233a;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-mat-form-field, .buttons{
+/* TÍTULO */
+.create-game h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* FORMULARIO */
+.create-game form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #1c2d47;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     width: 100%;
+    max-width: 900px; /* ✅ Aumentado para más espacio */
+}
+
+/* CAMPOS */
+mat-form-field {
+    width: 100%;
+    color: white;
+}
+
+mat-form-field input {
+    color: white;
+}
+
+/* BOTÓN */
+.create-game button[type="submit"] {
+    background-color: #ffcc00;
+    color: #0d1b2a;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.create-game button[type="submit"]:hover {
+    background-color: #e6b800;
+    color: #ffffff;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.back-btn mat-icon {
+    font-size: 20px;
+}
+
+.back-btn:hover {
+    background-color: #ffcc00;
+    color: #0d1b2a;
 }

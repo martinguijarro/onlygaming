@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Game } from '../models/game.model';
 import { GameService } from '../services/game.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
@@ -27,7 +28,8 @@ export class AdminPanelComponent {
 
   constructor(
     private gameService: GameService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.gameForm = this.fb.group({
       name: ['', Validators.required],
@@ -36,6 +38,10 @@ export class AdminPanelComponent {
       releaseDate: ['', Validators.required],
       imageUrl: ['', Validators.required]
     })
+  }
+
+  goHome() {
+    this.router.navigate(['']);
   }
 
   createGame() {
