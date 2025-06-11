@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,6 +18,7 @@ import { Game } from '../models/game.model';
     MatIconModule,
     MatDividerModule,
     MatDialogModule,
+    RouterModule,
     MatCardModule,
   ],
   templateUrl: './profile.component.html',
@@ -54,6 +55,10 @@ export class ProfileComponent implements OnInit {
 
   admin() {
     this.router.navigate(['/admin']);
+  }
+
+  reportedposts(){
+    this.router.navigate(['/reportedposts']);
   }
 
   register() {

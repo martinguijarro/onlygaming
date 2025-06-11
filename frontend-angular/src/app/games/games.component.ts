@@ -52,6 +52,10 @@ export class GamesComponent {
     this.router.navigate(['/admin']);
   }
 
+  reportedposts(){
+    this.router.navigate(['/reportedposts']);
+  }
+
   register() {
     this.router.navigate(['/register']);
   }

@@ -17,10 +17,10 @@
       <span>Perfil</span>
     </button>
 
-    <button class="btn" (click)="communities()">
+    <!-- <button class="btn" (click)="communities()">
       <mat-icon>groups</mat-icon>
       <span>Comunidades</span>
-    </button>
+    </button> -->
 
     <button class="btn" (click)="Games()">
       <mat-icon>games</mat-icon>
@@ -32,6 +32,11 @@
       <span>Panel admin</span>
     </button>
 
+    <button *ngIf="isAdmin" class="admin-btn" (click)="reportedposts()">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Posts reportados</span>
+    </button>
+
     <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">
       <mat-icon>logout</mat-icon>
       <span>Cerrar sesión</span>
@@ -41,8 +46,7 @@
   <div class="contenido">
     <div *ngFor="let game of games" class="game">
       <img class="images" [src]="game.imageUrl" (click)="Showdesc()" />
-      
-      <a href="#" class="game-name">{{ game.name }}</a>
+      <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }}</a>
       <p class="game-developer">{{ game.developer }}</p>
       <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
 

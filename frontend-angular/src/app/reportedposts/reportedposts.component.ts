@@ -22,10 +22,10 @@ import { Game } from '../models/game.model';
     RouterModule,
     CommonModule
   ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './reportedposts.component.html',
+  styleUrls: ['./reportedposts.component.css']
 })
-export class HomeComponent {
+export class ReportedpostComponent {
 
   popularGames: Game[] = [];
 
@@ -139,9 +139,27 @@ export class HomeComponent {
     });
   }
 
+  deleteReports(post: PostDTO){
+    this.postService.clearReportsPost(post.postId).subscribe(updatedPost => {
+      post.reports = updatedPost.reports;
+    });
+  }
+
+  deletePost(postId: string) {
+    this.postService.deletePost(postId).subscribe({
+      next: res => {
+        console.log(`Post ${postId} eliminado.`);
+        this.posts = this.posts.filter(post => post.postId !== postId);
+      },
+      error: err => {
+        console.error('Error al eliminar post:', err);
+      }
+    });
+  }
+
   refreshPosts() {
     this.postService.getPosts().subscribe((data) => {
-      this.posts = data;
+      this.posts = data.filter(post => post.reports && post.reports.length > 0);
     });
   }
 

@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { CommentsComponent } from '../comments/comments.component';
 import { CommonModule } from '@angular/common';
 import { PostDTO } from '../models/post.model';
@@ -12,7 +12,7 @@ import { GameService } from '../services/game.service';
 import { Game } from '../models/game.model';
 
 @Component({
-  selector: 'app-inicio',
+  selector: 'app-gamepost',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -22,21 +22,23 @@ import { Game } from '../models/game.model';
     RouterModule,
     CommonModule
   ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './gamepost.component.html',
+  styleUrls: ['./gamepost.component.css']
 })
-export class HomeComponent {
+export class GamepostComponent {
 
   popularGames: Game[] = [];
 
   isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   username: string | null = null;
+  gameName!:string;
 
   posts: PostDTO[] = [];
   
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private dialog: MatDialog,
     private postService: PostService,
     private gameService: GameService
@@ -140,8 +142,10 @@ export class HomeComponent {
   }
 
   refreshPosts() {
+    this.gameName = this.route.snapshot.paramMap.get('gameName')!;
+    console.log('gamename: ',this.gameName);
     this.postService.getPosts().subscribe((data) => {
-      this.posts = data;
+      this.posts = data.filter(post => post.game === this.gameName);
     });
   }
 

@@ -17,10 +17,10 @@
             <span>Perfil</span>
         </button>
 
-        <button class="btn" (click)="communities()">
+        <!-- <button class="btn" (click)="communities()">
             <mat-icon>groups</mat-icon>
             <span>Comunidades</span>
-        </button>
+        </button> -->
 
         <button class="btn" (click)="games()">
             <mat-icon>games</mat-icon>
@@ -30,6 +30,11 @@
         <button *ngIf="isAdmin" class="admin-btn" (click)="admin()">
             <mat-icon>admin_panel_settings</mat-icon>
             <span>Panel admin</span>
+        </button>
+
+        <button *ngIf="isAdmin" class="admin-btn" (click)="reportedposts()">
+            <mat-icon>admin_panel_settings</mat-icon>
+            <span>Posts reportados</span>
         </button>
 
         <button *ngIf="isLoggedIn" class="logout-btn" (click)="logout()">
@@ -46,16 +51,16 @@
             </div>
 
             <div class="user-games">
-                <h3>Mis Juegos</h3>
-                <div *ngIf="userGames.length === 0">No has añadido ningún juego todavía.</div>
-                <div class="games-list" *ngIf="userGames.length > 0">
-                    <div *ngFor="let game of userGames" class="game">
-                    <img class="images" [src]="game.imageUrl" />
-                    <a href="#" class="game-name">{{ game.name }}</a>
-                    <p class="game-developer">{{ game.developer }}</p>
-                    <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
-                    </div>
+            <h3>Mis Juegos</h3>
+            <div *ngIf="userGames.length === 0">No has añadido ningún juego todavía.</div>
+            <div class="games-list" *ngIf="userGames.length > 0">
+                <div *ngFor="let game of userGames" class="game">
+                <img class="images" [src]="game.imageUrl" />
+                <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }}</a>
+                <p class="game-developer">{{ game.developer }}</p>
+                <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
                 </div>
+            </div>
             </div>
         </div>
         <!-- <div *ngFor="let post of posts" class="post">

@@ -18,6 +18,7 @@ public class PostDTO {
     private String text;
     private LocalDateTime date;
     private List<String> likes;
+    private List<String> reports;
     private String userName;
     private String userUsername;
     private String game;
