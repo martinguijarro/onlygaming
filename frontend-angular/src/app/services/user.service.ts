@@ -30,4 +30,8 @@ export class UserService {
     deleteUserByUsername(username: string): Observable<any> {
         return this.http.delete<any>(`${environment.backUrl}/user/username/${username}/delete`, { withCredentials: false })
     }
+
+    updateUserRole(username: string, role: string): Observable<any> {
+        return this.http.put<any>(`${environment.backUrl}/user/username/${username}/role`, role, { withCredentials: false })
+    }
 }

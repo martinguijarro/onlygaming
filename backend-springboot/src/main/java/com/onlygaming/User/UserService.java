@@ -114,12 +114,30 @@ public class UserService {
 
 	public Map<String, Boolean> deleteUserByUsername(String username) throws ResourceNotFoundException {
 		User user = userRepository.findByUsername(username)
-			.orElseThrow(() -> new ResourceNotFoundException("User with id " + username + " not found"));
+			.orElseThrow(() -> new ResourceNotFoundException("User with username " + username + " not found"));
 		userRepository.delete(user);
 		
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("User deleted", Boolean.TRUE);
 		return response;
 	}
+
+	public Map<String, Boolean> updateUserRole(String username, String role) throws ResourceNotFoundException {
+    User user = userRepository.findByUsername(username)
+        .orElseThrow(() -> new ResourceNotFoundException("User with username " + username + " not found"));
+
+    try {
+        user.setRole(Role.valueOf(role.toUpperCase()));
+    } catch (IllegalArgumentException e) {
+        throw new IllegalArgumentException("Rol inválido: " + role);
+    }
+
+    userRepository.save(user);
+
+    Map<String, Boolean> response = new HashMap<>();
+    response.put("Role updated", Boolean.TRUE);
+    return response;
+}
+
 
 }

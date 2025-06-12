@@ -27,6 +27,7 @@ import { UserService } from '../services/user.service';
 export class AdminPanelComponent {
   gameForm: FormGroup;
   deleteUserForm: FormGroup;
+  changeRoleForm: FormGroup;
 
   constructor(
     private gameService: GameService,
@@ -47,6 +48,11 @@ export class AdminPanelComponent {
     this.deleteUserForm = this.fb.group({
       username: ['', Validators.required]
     });
+
+    // Formulario para cambiar rol
+    this.changeRoleForm = this.fb.group({
+      username: ['', Validators.required]
+    })
   }
 
   goHome() {
@@ -90,4 +96,25 @@ export class AdminPanelComponent {
       }
     });
   }
+
+  changeUserRole() {
+    if (!this.changeRoleForm.valid) {
+      console.log('Formulario inválido');
+      return;
+    }
+
+    const username = this.changeRoleForm.value.username;
+    const role = 'ADMIN';
+
+    this.userService.updateUserRole(username, role).subscribe({
+      next: () => {
+        console.log(`Usuario ${username} ahora es ADMIN`);
+        this.changeRoleForm.reset();
+      },
+      error: err => {
+        console.error('Error al actualizar rol: ', err);
+      }
+    });
+  }
+
 }

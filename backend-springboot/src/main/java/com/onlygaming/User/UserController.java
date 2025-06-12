@@ -71,4 +71,9 @@ public class UserController {
 		return userService.deleteUserByUsername(username);
 	}
 
+	@PutMapping("user/username/{username}/role")
+	public Map<String, Boolean> updateUserRole(@PathVariable String username, @RequestBody String role) throws ResourceNotFoundException {		
+		return userService.updateUserRole(username, role);
+	}
+
 }
