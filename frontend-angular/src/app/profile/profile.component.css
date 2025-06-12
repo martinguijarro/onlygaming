@@ -9,7 +9,6 @@ body {
     color: white;
 }
 
-/* MENU LATERAL */
 .lateral {
     position: fixed;
     display: flex;
@@ -34,7 +33,6 @@ body {
     color: #eeeeee;
 }
 
-/* BOTONES DEL MENU LATERAL */
 .btn, .admin-btn, .logout-btn {
     display: flex;
     align-items: center;
@@ -80,7 +78,6 @@ body {
     color: white;
 }
 
-/* CONTENIDO PRINCIPAL */
 .contenido {
     position: relative;
     height: 100vh;
@@ -96,7 +93,6 @@ body {
     scrollbar-color: #0d1b2a #12233a;
 }
 
-/* PERFIL (Avatares, usuario, bio) */
 .perfil {
     background-color: #1b2a44;
     border-radius: 12px;
@@ -105,15 +101,6 @@ body {
     max-width: 700px;
     margin: 40px auto;
     text-align: center;
-}
-
-.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    margin-bottom: 16px;
 }
 
 .perfil h2 {

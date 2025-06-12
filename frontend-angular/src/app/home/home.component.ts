@@ -141,9 +141,12 @@ export class HomeComponent {
 
   refreshPosts() {
     this.postService.getPosts().subscribe((data) => {
-      this.posts = data;
+      this.posts = data.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
     });
   }
+
 
   getPopularGames() {
     this.gameService.getPopularGames().subscribe({

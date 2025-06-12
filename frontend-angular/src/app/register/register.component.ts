@@ -33,11 +33,11 @@ export class RegisterComponent {
     private registerService: RegisterService
   ) {
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      email: ['', Validators.required],
-      tel: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      email: ['', [Validators.required, Validators.email]],
+      tel: ['', [Validators.pattern(/^[0-9]{9}$/)]],
       role: [Role.CLIENT, Validators.required],
     })
   }

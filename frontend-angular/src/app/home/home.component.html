@@ -58,9 +58,9 @@
         <span>{{ post.likes.length || 0 }}</span>
 
         <button mat-icon-button (click)="toggleReport(post)">
-          <mat-icon [ngClass]="{'reported': post.reports?.includes(username!)}">information</mat-icon>
+          <mat-icon [ngClass]="{'reported': post.reports.includes(username!)}">information</mat-icon>
         </button>
-        <span>{{ post.reports?.length || 0 }}</span>
+        <span>{{ post.reports.length || 0 }}</span>
       </div>
     </div>
   </div>

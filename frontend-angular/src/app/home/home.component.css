@@ -9,7 +9,6 @@ body {
     color: white;
 }
 
-/* MENU LATERAL */
 .lateral {
     position: fixed;
     display: flex;
@@ -34,7 +33,6 @@ body {
     color: #eeeeee;
 }
 
-/* BOTONES DEL MENU LATERAL */
 .btn, .admin-btn, .logout-btn {
     display: flex;
     align-items: center;
@@ -80,7 +78,6 @@ body {
     color: white;
 }
 
-/* CONTENIDO PRINCIPAL */
 .contenido {
     position: relative;
     height: 100vh;
@@ -96,7 +93,6 @@ body {
     scrollbar-color: #0d1b2a #12233a;
 }
 
-/* SECCIÓN RECOMENDACIONES */
 .recomendaciones {
     position: fixed;
     top: 0;
@@ -117,7 +113,6 @@ body {
     color: #ffcc00;
 }
 
-/* POSTS */
 .post {
     background-color: #1b2a44;
     padding: 12px 16px;
@@ -175,11 +170,10 @@ body {
     color: yellow !important;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-/* BOTÓN NUEVO COMENTARIO */
 .new-comment-btn {
     position: fixed;
     bottom: 40px;
@@ -193,7 +187,6 @@ a{
     background-color: #8cbc57;
 }
 
-/* LISTA DE JUEGOS POPULARES */
 .popular-games-list {
     list-style: none;
     padding: 0;
@@ -239,10 +232,4 @@ a{
     font-size: 16px;
     color: #ffcc00;
     margin: 0;
-}
-
-.game-players {
-    font-size: 13px;
-    color: #bbb;
-    margin: 2px 0 0 0;
 }

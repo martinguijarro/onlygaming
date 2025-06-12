@@ -9,7 +9,6 @@ body {
     color: white;
 }
 
-/* MENU LATERAL */
 .lateral {
     position: fixed;
     display: flex;
@@ -34,7 +33,6 @@ body {
     color: #eeeeee;
 }
 
-/* BOTONES DEL MENU LATERAL */
 .btn, .admin-btn, .logout-btn {
     display: flex;
     align-items: center;
@@ -80,9 +78,8 @@ body {
     color: white;
 }
 
-/* CONTENIDO PRINCIPAL */
 .contenido {
-  position: fixed; /* Fijo para que no deje hueco */
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 180px;
@@ -108,7 +105,7 @@ body {
 .images {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* ✅ Misma forma sin deformar */
+    object-fit: cover;
     border-radius: 6px;
     margin-bottom: 10px;
 }
@@ -122,7 +119,7 @@ a {
     display: block;
     font-size: 18px;
     font-weight: 600;
-    color: #ffcc00; /* Igual que el logo y admin */
+    color: #ffcc00;
     margin-bottom: 6px;
     font-family: inherit;
 }

@@ -10,7 +10,6 @@
     align-items: center;
 }
 
-/* TÍTULO */
 .create-game h2 {
     font-size: 28px;
     font-weight: bold;
@@ -19,7 +18,6 @@
     text-align: center;
 }
 
-/* FORMULARIO */
 .create-game form {
     display: flex;
     flex-direction: column;
@@ -29,10 +27,9 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 900px; /* ✅ Aumentado para más espacio */
+    max-width: 900px;
 }
 
-/* CAMPOS */
 mat-form-field {
     width: 100%;
     color: white;
@@ -42,7 +39,6 @@ mat-form-field input {
     color: white;
 }
 
-/* BOTÓN */
 .create-game button[type="submit"] {
     background-color: #ffcc00;
     color: #0d1b2a;

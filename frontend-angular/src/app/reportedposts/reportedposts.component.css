@@ -9,7 +9,6 @@ body {
     color: white;
 }
 
-/* MENU LATERAL */
 .lateral {
     position: fixed;
     display: flex;
@@ -34,7 +33,6 @@ body {
     color: #eeeeee;
 }
 
-/* BOTONES DEL MENU LATERAL */
 .btn, .admin-btn, .logout-btn {
     display: flex;
     align-items: center;
@@ -80,7 +78,6 @@ body {
     color: white;
 }
 
-/* CONTENIDO PRINCIPAL */
 .contenido {
     position: relative;
     height: 100vh;
@@ -96,28 +93,6 @@ body {
     scrollbar-color: #0d1b2a #12233a;
 }
 
-/* SECCIÓN RECOMENDACIONES */
-.recomendaciones {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 20%;
-    height: 100vh;
-    padding: 40px 20px;
-    color: white;
-    border-left: 1px solid #223355;
-    background-color: #12233a;
-    font-family: inherit;
-    overflow-y: auto;
-}
-
-.recomendaciones h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #ffcc00;
-}
-
-/* POSTS */
 .post {
     background-color: #1b2a44;
     padding: 12px 16px;
@@ -175,7 +150,6 @@ a{
     text-decoration: none;
 }
 
-/* BOTÓN NUEVO COMENTARIO */
 .new-comment-btn {
     position: fixed;
     bottom: 40px;
@@ -187,58 +161,4 @@ a{
 
 .new-comment-btn:hover {
     background-color: #8cbc57;
-}
-
-/* LISTA DE JUEGOS POPULARES */
-.popular-games-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-}
-
-.popular-game-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #223355;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.popular-game-item:last-child {
-    border-bottom: none;
-}
-
-.popular-game-item:hover {
-    background-color: #1a2c45;
-    border-radius: 6px;
-}
-
-.game-thumb {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5);
-}
-
-.game-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.game-name {
-    font-weight: 700;
-    font-size: 16px;
-    color: #ffcc00;
-    margin: 0;
-}
-
-.game-players {
-    font-size: 13px;
-    color: #bbb;
-    margin: 2px 0 0 0;
 }

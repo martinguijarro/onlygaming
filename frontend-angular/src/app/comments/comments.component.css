@@ -1,4 +1,3 @@
-/* Contenedor principal del diálogo */
 .contenedor {
     background-color: #1b2a44;
     border-radius: 20px;
@@ -12,7 +11,6 @@
     gap: 8px;
 }
 
-/* Título */
 .contenedor h1 {
     font-size: 24px;
     color: #ffcc00;
@@ -20,19 +18,16 @@
     text-align: center;
 }
 
-/* Formulario */
 .contenedor form {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-/* Mat form field - ancho completo */
 mat-form-field {
     width: 100%;
 }
 
-/* Textarea */
 textarea.text {
     background-color: #12233a;
     color: white !important;
@@ -46,7 +41,6 @@ textarea.text {
     outline: none;
 }
 
-/* Select */
 select.game {
     width: 100%;
     padding: 6px 12px;
@@ -63,7 +57,6 @@ select.game:hover {
     border-color: #446688;
 }
 
-/* Botón publicar */
 .submit-btn {
     background-color: #12233a;
     border: 1px solid #223355;

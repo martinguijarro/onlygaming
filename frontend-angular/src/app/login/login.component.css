@@ -1,4 +1,3 @@
-/* RESET */
 * {
     margin: 0;
     box-sizing: border-box;
@@ -14,7 +13,6 @@ body {
     height: 100vh;
 }
 
-/* LOGIN CARD */
 mat-card {
     width: 400px;
     padding: 40px 30px;
@@ -25,14 +23,12 @@ mat-card {
     text-align: center;
 }
 
-/* TITULO */
 h1 {
     margin-bottom: 30px;
     font-size: 24px;
     color: #ffcc00;
 }
 
-/* FORMULARIO */
 mat-form-field {
     width: 100%;
     margin-bottom: 20px;
@@ -44,7 +40,6 @@ mat-form-field {
     border-radius: 4px;
 }
 
-/* BOTONES */
 .buttons {
     display: flex;
     gap: 10px;
@@ -79,20 +74,17 @@ mat-form-field {
 }
 
 .register-btn {
-    white-space: normal; /* Permite salto de línea */
+    white-space: normal;
     line-height: 1.2;
     text-align: center;
 }
 
-
-/* Hover para ambos */
 .login-btn:hover,
 .register-btn:hover {
     background-color: #1a2c45;
     border-color: #446688;
 }
 
-/* BOTÓN CERRAR */
 .close-btn {
     font-size: 18px;
     font-weight: bold;

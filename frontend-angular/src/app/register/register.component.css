@@ -1,4 +1,3 @@
-/* RESET */
 * {
     margin: 0;
     box-sizing: border-box;
@@ -12,12 +11,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    padding: 20px; /* Para que no pegue demasiado a los bordes en pantallas pequeñas */
+    padding: 20px;
 }
 
-/* REGISTER CARD */
 mat-card {
-    width: 420px; /* un poco más ancho para el formulario más largo */
+    width: 420px;
     padding: 40px 30px 50px 30px;
     background-color: #1b2a44;
     border-radius: 20px;
@@ -25,17 +23,15 @@ mat-card {
     position: relative;
     text-align: center;
     max-height: 90vh;
-    overflow-y: auto; /* Para scroll si el contenido es muy largo */
+    overflow-y: auto;
 }
 
-/* TITULO */
 h1 {
     margin-bottom: 30px;
     font-size: 24px;
     color: #ffcc00;
 }
 
-/* FORMULARIO */
 mat-form-field {
     width: 100%;
     margin-bottom: 18px;
@@ -47,7 +43,6 @@ mat-form-field {
     border-radius: 4px;
 }
 
-/* BOTONES */
 .buttons {
     display: flex;
     gap: 12px;
@@ -75,14 +70,12 @@ mat-form-field {
     text-align: center;
 }
 
-/* Hover para ambos botones */
 .register-btn:hover,
 .login-btn:hover {
     background-color: #1a2c45;
     border-color: #446688;
 }
 
-/* BOTÓN CERRAR */
 .close-btn {
     font-size: 18px;
     font-weight: bold;
@@ -104,4 +97,12 @@ mat-form-field {
 
 .close-btn:hover {
     background-color: #b91c1c;
+}
+
+.register-btn:disabled {
+  background-color: #2a3b55 !important;
+  color: rgba(255, 255, 255, 0.4);
+  border-color: #2a3b55;
+  cursor: not-allowed;
+  opacity: 1;
 }
