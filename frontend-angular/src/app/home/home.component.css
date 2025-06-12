@@ -171,9 +171,9 @@ body {
     color: #ff4444 !important;
 }
 
-.post-actions mat-icon.reported {
+/* .post-actions mat-icon.reported {
     color: yellow !important;
-}
+} */
 
 a{
     text-decoration: none;
