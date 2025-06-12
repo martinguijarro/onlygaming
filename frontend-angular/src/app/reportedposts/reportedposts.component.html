@@ -52,25 +52,27 @@
       <p class="post-text">{{ post.text }}</p>
 
       <div class="post-actions">
-        <button mat-icon-button (click)="toggleLike(post)">
-          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
-        </button>
-        <span>{{ post.likes.length || 0 }}</span>
+        <div class="interaction-actions">
+          <button mat-icon-button (click)="toggleLike(post)">
+            <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
+          </button>
+          <span>{{ post.likes.length || 0 }}</span>
 
-        <button mat-icon-button (click)="toggleReport(post)">
-          <mat-icon [ngClass]="{'reported': post.reports?.includes(username!)}">information</mat-icon>
-        </button>
-        <span>{{ post.reports?.length || 0 }}</span>
-      </div>
+          <button mat-icon-button (click)="toggleReport(post)">
+            <mat-icon [ngClass]="{'reported': post.reports.includes(username!)}">information</mat-icon>
+          </button>
+          <span>{{ post.reports.length || 0 }}</span>
+        </div>
 
-      <div class="post-actions">
-        <button mat-icon-button (click)="deleteReports(post)">
-          <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">refresh</mat-icon>
-        </button>
+        <div class="admin-actions" *ngIf="isAdmin">
+          <button mat-icon-button (click)="deleteReports(post)">
+            <mat-icon>refresh</mat-icon>
+          </button>
 
-        <button mat-icon-button (click)="deletePost(post.postId)">
-          <mat-icon [ngClass]="{'reported': post.reports?.includes(username!)}">delete</mat-icon>
-        </button>
+          <button mat-icon-button (click)="deletePost(post.postId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>
