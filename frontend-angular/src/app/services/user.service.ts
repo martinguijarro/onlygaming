@@ -19,6 +19,10 @@ export class UserService {
 
     constructor(private http: HttpClient) {}
 
+    getAllGames() {
+        return this.http.get<Game[]>(`${environment.backUrl}/games/all`, { withCredentials: false })
+    }
+
     getUserById(userId: string): Observable<User> {
         return this.http.get<User>(`${environment.backUrl}/user/${userId}`, { withCredentials: false })
     }

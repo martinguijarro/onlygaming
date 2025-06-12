@@ -37,6 +37,11 @@ public class UserController {
 	public ResponseEntity<User> getUserById(@PathVariable String userId) throws ResourceNotFoundException {
 		return userService.getUserById(userId);
 	}
+
+	@GetMapping("/user/username/{userId}")
+	public ResponseEntity<User> getUserByUsername(@PathVariable String username) throws ResourceNotFoundException {
+		return userService.getUserById(username);
+	}
 	
 	@PostMapping("/user/create")
 	public User createUser(@Valid @RequestBody User user) {

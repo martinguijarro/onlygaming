@@ -148,4 +148,9 @@ public class PostService {
 
         return ResponseEntity.ok(post);
     }
+
+    public List<Post> getPostsByUserId(String userId) {
+        return postRepository.findByUserId(userId);
+    }
+
 }

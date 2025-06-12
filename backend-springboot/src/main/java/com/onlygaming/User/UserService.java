@@ -43,6 +43,13 @@ public class UserService {
 		
 		return ResponseEntity.ok().body(user);
 	}
+
+	public ResponseEntity<User> getUserByUsername(String username) throws ResourceNotFoundException {
+		User user = userRepository.findByUsername(username)
+			.orElseThrow(() -> new ResourceNotFoundException("User with username " + username + " not found"));
+		
+		return ResponseEntity.ok().body(user);
+	}
 	
 	public User createUser(User user) {
 		// Hash password before saving

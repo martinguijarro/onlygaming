@@ -18,6 +18,10 @@ export class PostService {
         return this.http.get<PostDTO[]>(`${environment.backUrl}/posts/all`, { withCredentials: false })
     }
 
+    getPostsByUsername(username: string): Observable<Post[]> {
+        return this.http.get<Post[]>(`${environment.backUrl}/user/${username}/posts`, { withCredentials: false })
+    }
+
     createPost(post: Post) {
         return this.http.post(`${environment.backUrl}/post/create`, post, { withCredentials: false })
     }

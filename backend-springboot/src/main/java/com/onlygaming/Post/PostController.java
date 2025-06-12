@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onlygaming.Exception.ResourceNotFoundException;
+import com.onlygaming.User.User;
+import com.onlygaming.User.UserService;
 
 import jakarta.validation.Valid;
 
@@ -24,6 +26,9 @@ public class PostController {
     
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private UserService userService;
 
     // CRUD endpoints
 
@@ -79,5 +84,27 @@ public class PostController {
         return postService.clearReports(postId);
     }
 
+    @GetMapping("/user/{username}/posts")
+    public ResponseEntity<List<Post>> getPostsByUsername(@PathVariable String username) throws ResourceNotFoundException {
+        ResponseEntity<User> userResponse = userService.getUserByUsername(username);
+
+        if (!userResponse.getStatusCode().is2xxSuccessful() || userResponse.getBody() == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        User user = userResponse.getBody();
+
+        if (user == null || user.getUserId() == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<Post> posts = postService.getPostsByUserId(user.getUserId());
+
+        if (posts.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.ok(posts);
+    }
 
 }

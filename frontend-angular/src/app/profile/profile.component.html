@@ -44,38 +44,34 @@
     </div>    
 
     <div class="contenido">
-        <div class="perfil">
-            <div class="informacion">
-            <h2>{{ user.name }}</h2>
-            <p class="username">{{ '@' + user.username }}</p>
-            </div>
+    <div class="perfil">
+      <div class="informacion">
+        <h2>{{ user.name }}</h2>
+        <p class="username">{{ '@' + user.username }}</p>
+      </div>
 
-            <div class="user-games">
-            <h3>Mis Juegos</h3>
-            <div *ngIf="userGames.length === 0">No has añadido ningún juego todavía.</div>
-            <div class="games-list" *ngIf="userGames.length > 0">
-                <div *ngFor="let game of userGames" class="game">
-                <img class="images" [src]="game.imageUrl" />
-                <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }}</a>
-                <p class="game-developer">{{ game.developer }}</p>
-                <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
-                </div>
-            </div>
-            </div>
+      <div class="user-games">
+        <h3>Mis Juegos</h3>
+        <div *ngIf="userGames.length === 0">No has añadido ningún juego todavía.</div>
+        <div class="games-list" *ngIf="userGames.length > 0">
+          <div *ngFor="let game of userGames" class="game">
+            <img class="images" [src]="game.imageUrl" />
+            <a [routerLink]="['/game', game.name]" class="game-name">{{ game.name }}</a>
+            <p class="game-developer">{{ game.developer }}</p>
+            <p class="game-date">{{ game.releaseDate | date: 'dd/MM/yyyy' }}</p>
+          </div>
         </div>
-        <!-- <div *ngFor="let post of posts" class="post">
-            <p class="post-user">
-                {{ post.userName }}<span>{{ '@' + post.userUsername }} · {{ post.date | date:'dd/MM/yyyy HH:mm' }}</span>
-            </p>
-            <p class="post-game">{{ post.game }}</p>
-            <p class="post-text">{{ post.text }}</p>
-
-            <div class="post-actions">
-                <button mat-icon-button (click)="toggleLike(post)">
-                <mat-icon [ngClass]="{'liked': post.likes.includes(username!)}">favorite</mat-icon>
-                </button>
-                <span>{{ post.likes.length || 0 }}</span>
-            </div>
-        </div> -->
+      </div>
     </div>
+
+    <div class="user-posts">
+      <h3>Mis Posts</h3>
+      <div *ngIf="posts.length === 0">No has publicado ningún post todavía.</div>
+      <div *ngFor="let post of posts" class="post">
+        <p class="post-date">{{ post.date | date:'dd/MM/yyyy HH:mm' }}</p>
+        <p class="post-game">{{ getGameName(post.gameId) }}</p>
+        <p class="post-text">{{ post.text }}</p>
+      </div>
+    </div>
+  </div>
 </body>

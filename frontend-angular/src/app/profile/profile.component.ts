@@ -6,8 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+
 import { UserService } from '../services/user.service';
+import { PostService } from '../services/post.service';
 import { Game } from '../models/game.model';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-perfil',
@@ -22,7 +25,7 @@ import { Game } from '../models/game.model';
     MatCardModule,
   ],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css',
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
   
@@ -31,12 +34,14 @@ export class ProfileComponent implements OnInit {
   username: string | null = null;
 
   user: any = {};
-  userGames: Game[] = [];  // <-- Aquí almacenamos los juegos
+  userGames: Game[] = [];
+  posts: Post[] = [];
+  allGames: Game[] = [];
 
   constructor(
     private router: Router,
     private userService: UserService,
-    private userGameService: UserService // <-- Servicio para los juegos
+    private postService: PostService
   ) {}
 
   login() {
@@ -50,6 +55,7 @@ export class ProfileComponent implements OnInit {
     this.isAdmin = false;
     this.isLoggedIn = false;
     this.username = null;
+    this.router.navigate([''])
     console.log('User logged out');
   }
 
@@ -99,6 +105,8 @@ export class ProfileComponent implements OnInit {
       this.userService.getUserById(userId).subscribe({
         next: res => {
           this.user = res;
+          // Cargar posts cuando ya tenemos el usuario
+          this.loadUserPosts();
         },
         error: err => {
           console.error('Error al obtener datos del usuario: ', err);
@@ -114,8 +122,37 @@ export class ProfileComponent implements OnInit {
           console.error('Error al obtener juegos del usuario: ', err);
         }
       });
+
+      // Obtener todos los juegos para resolver nombres
+      this.userService.getAllGames().subscribe({
+        next: games => {
+          this.allGames = games;
+        },
+        error: err => {
+          console.error('Error al obtener todos los juegos: ', err);
+        }
+      });
     }
   }
 
-  // Métodos de navegación y sesión (login, logout, etc.) sin cambios...
+  loadUserPosts(): void {
+    if (!this.user.username) return;
+
+    this.postService.getPostsByUsername(this.user.username).subscribe({
+      next: postsData => {
+        // Mapear posts para añadir nombre del juego en cada post
+        this.posts = postsData.map(post => ({
+          ...post,
+          gameName: this.getGameName(post.gameId)
+        }));
+      },
+      error: err => console.error('Error cargando posts:', err)
+    });
+  }
+
+  getGameName(gameId: string): string {
+    const game = this.allGames.find(g => g.gameId === gameId);
+    return game ? game.name : 'Juego desconocido';
+  }
+
 }
