@@ -1,38 +1,48 @@
 <body>
-    <div class="create-game">
-        <button class="back-btn" (click)="goHome()">
-            <mat-icon>arrow_back</mat-icon>
-            Volver al inicio
-        </button>
+  <div class="create-game">
+    <button class="back-btn" (click)="goHome()">
+      <mat-icon>arrow_back</mat-icon>
+      Volver al inicio
+    </button>
 
-        <h2>Crear juego</h2>
-        <form [formGroup]="gameForm" (ngSubmit)="createGame()">
-            <mat-form-field>
-                <mat-label>Nombre</mat-label>
-                <input matInput type="text" formControlName="name">
-            </mat-form-field>
+    <h2>Crear juego</h2>
+    <form [formGroup]="gameForm" (ngSubmit)="createGame()">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name">
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Descripcion</mat-label>
-                <input matInput type="text" formControlName="description">
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <input matInput type="text" formControlName="description">
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Desarrollador</mat-label>
-                <input matInput type="text" formControlName="developer">
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Desarrollador</mat-label>
+        <input matInput type="text" formControlName="developer">
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Fecha de lanzamiento</mat-label>
-                <input matInput type="text" formControlName="releaseDate">
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Fecha de lanzamiento</mat-label>
+        <input matInput type="text" formControlName="releaseDate">
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Imagen url</mat-label>
-                <input matInput type="text" formControlName="imageUrl">
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Imagen url</mat-label>
+        <input matInput type="text" formControlName="imageUrl">
+      </mat-form-field>
 
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Eliminar usuario</h2>
+    <form [formGroup]="deleteUserForm" (ngSubmit)="deleteUser()">
+      <mat-form-field>
+        <mat-label>Nombre de usuario</mat-label>
+        <input matInput type="text" formControlName="username">
+      </mat-form-field>
+
+      <button type="submit" class="delete-btn">Eliminar usuario</button>
+    </form>
+  </div>
 </body>

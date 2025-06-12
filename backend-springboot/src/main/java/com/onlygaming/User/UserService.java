@@ -112,4 +112,14 @@ public class UserService {
 		return games;
 	}
 
+	public Map<String, Boolean> deleteUserByUsername(String username) throws ResourceNotFoundException {
+		User user = userRepository.findByUsername(username)
+			.orElseThrow(() -> new ResourceNotFoundException("User with id " + username + " not found"));
+		userRepository.delete(user);
+		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("User deleted", Boolean.TRUE);
+		return response;
+	}
+
 }

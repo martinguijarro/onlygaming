@@ -66,4 +66,9 @@ public class UserController {
 		return userService.getGamesByUserId(userId);
 	}
 
+	@DeleteMapping("user/username/{username}/delete")
+	public Map<String, Boolean> deleteUserByUsername(@PathVariable String username) throws ResourceNotFoundException {
+		return userService.deleteUserByUsername(username);
+	}
+
 }

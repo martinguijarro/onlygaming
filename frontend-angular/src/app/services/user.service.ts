@@ -26,4 +26,8 @@ export class UserService {
     getUserGames(userId: string) {
         return this.http.get<Game[]>(`${environment.backUrl}/user/${userId}/games`, { withCredentials: false })
     }
+
+    deleteUserByUsername(username: string): Observable<any> {
+        return this.http.delete<any>(`${environment.backUrl}/user/username/${username}/delete`, { withCredentials: false })
+    }
 }
